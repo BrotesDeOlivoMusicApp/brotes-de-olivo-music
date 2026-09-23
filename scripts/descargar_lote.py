@@ -12,7 +12,7 @@ import time
 import unicodedata
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 from urllib.request import Request, urlopen
 
 MEDIA_EXTENSIONS = {".mp3", ".mp4", ".m4a", ".wav", ".flac", ".aac", ".ogg"}
@@ -58,8 +58,9 @@ def download(url: str, dest: Path, retries: int = 3, timeout: int = 60) -> tuple
     last_error = None
     for attempt in range(1, retries + 1):
         try:
+            request_url = quote(url, safe=":/?&=%")
             req = Request(
-                url,
+                request_url,
                 headers={
                     "User-Agent": "BrotesDeOlivoMusicApp/1.0",
                     "Accept": "audio/*,video/*,application/octet-stream;q=0.8,*/*;q=0.1",
