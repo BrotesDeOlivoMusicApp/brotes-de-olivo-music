@@ -1,0 +1,171 @@
+name: Publicar discografía en Releases
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/publicar-discografia.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-discografia-v1
+  cancel-in-progress: false
+
+env:
+  RELEASE_TAG: discografia-v1
+  RELEASE_TITLE: "Discografía Brotes de Olivo v1"
+
+jobs:
+  crear-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Crear Release si no existe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "La release $RELEASE_TAG ya existe"
+          else
+            gh release create "$RELEASE_TAG" \
+              --target main \
+              --title "$RELEASE_TITLE" \
+              --notes "Archivos musicales oficiales utilizados por las aplicaciones de Brotes de Olivo Music. Los ficheros se publican como assets de GitHub Releases y no forman parte del historial Git normal."
+          fi
+
+  subir-lotes:
+    needs: crear-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        inicio: [0, 50, 100, 150, 200, 250, 300, 350]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Descargar y catalogar lote
+        run: |
+          python scripts/descargar_lote.py \
+            --fuentes fuentes.json \
+            --salida build \
+            --inicio "${{ matrix.inicio }}" \
+            --cantidad 50
+
+      - name: Preparar manifiesto del lote
+        run: |
+          cp build/manifest.json "build/manifest-${{ matrix.inicio }}.json"
+
+      - name: Subir archivos a la Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(build/media/*/*)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No hay archivos descargados en este lote"
+            exit 0
+          fi
+          gh release upload "$RELEASE_TAG" "${files[@]}" --clobber
+
+      - name: Subir manifiesto del lote
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest-${{ matrix.inicio }}
+          path: build/manifest-${{ matrix.inicio }}.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Resumen del lote
+        if: always()
+        run: cat build/resumen.txt || true
+
+  generar-catalogo:
+    needs: subir-lotes
+    runs-on: ubuntu-latest
+    if: always() && !cancelled()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Descargar manifiestos
+        uses: actions/download-artifact@v4
+        with:
+          pattern: manifest-*
+          path: manifests
+          merge-multiple: true
+
+      - name: Generar catálogo
+        run: |
+          python scripts/generar_catalogo.py \
+            --manifests manifests \
+            --salida catalogo.json \
+            --repo "${{ github.repository }}" \
+            --tag "$RELEASE_TAG"
+
+      - name: Validar catálogo
+        run: |
+          python -m json.tool catalogo.json >/dev/null
+          python -m pip install --quiet jsonschema
+          python - <<'PY'
+          import json
+          from jsonschema import Draft202012Validator
+
+          with open("schema/catalogo.schema.json", encoding="utf-8") as f:
+              schema = json.load(f)
+          with open("catalogo.json", encoding="utf-8") as f:
+              catalogo = json.load(f)
+
+          Draft202012Validator.check_schema(schema)
+          errores = sorted(Draft202012Validator(schema).iter_errors(catalogo), key=lambda e: list(e.path))
+          if errores:
+              for e in errores:
+                  print(f"{list(e.path)}: {e.message}")
+              raise SystemExit(1)
+
+          print(f"Catálogo válido: {len(catalogo['canciones'])} canciones")
+          PY
+
+      - name: Subir catálogo a la Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "$RELEASE_TAG" catalogo.json --clobber
+
+      - name: Guardar catálogo en main
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalogo.json
+          if git diff --cached --quiet; then
+            echo "catalogo.json no ha cambiado"
+            exit 0
+          fi
+          git commit -m "Publica catálogo musical de la discografía [skip ci]"
+          git push
