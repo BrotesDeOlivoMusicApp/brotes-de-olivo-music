@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/raw/main/schema/catalogo.schema.json",
+  "title": "Catálogo musical de Brotes de Olivo Music",
+  "description": "Esquema del catálogo utilizado por las aplicaciones de Brotes de Olivo Music.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "fecha_actualizacion",
+    "canciones"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fecha_actualizacion": {
+      "type": "string"
+    },
+    "canciones": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cancion"
+      }
+    }
+  },
+  "$defs": {
+    "cancion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "titulo",
+        "archivo",
+        "url",
+        "tipo",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "isrc": {
+          "type": "string"
+        },
+        "titulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "disco": {
+          "type": "string"
+        },
+        "anio": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "numero_pista": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "archivo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duracion_segundos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tamano_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
