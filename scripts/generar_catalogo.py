@@ -21,6 +21,8 @@ def main() -> int:
     ap.add_argument("--salida", default="catalogo.json")
     ap.add_argument("--repo", default="BrotesDeOlivoMusicApp/brotes-de-olivo-music")
     ap.add_argument("--tag", default="discografia-v1")
+    ap.add_argument("--esperados", type=int, default=0)
+    ap.add_argument("--sin-incidencias", action="store_true")
     args = ap.parse_args()
 
     manifest_dir = Path(args.manifests)
@@ -30,6 +32,8 @@ def main() -> int:
     files = sorted(manifest_dir.glob("manifest-*.json"))
     if not files:
         raise SystemExit("No se encontraron manifest-*.json")
+    if args.esperados and len(files) != args.esperados:
+        raise SystemExit(f"Se esperaban {args.esperados} manifiestos y se encontraron {len(files)}")
 
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -99,6 +103,8 @@ def main() -> int:
     if incidencias:
         for i in incidencias:
             print(f"INCIDENCIA: {i}")
+        if args.sin_incidencias:
+            raise SystemExit(f"Hay {len(incidencias)} incidencias; no se publica un catálogo incompleto")
 
     return 0
 
