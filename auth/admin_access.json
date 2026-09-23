@@ -1,0 +1,30 @@
+{
+  "format_version": 1,
+  "updated_at": "2026-09-24T00:55:00+02:00",
+  "provisioned": false,
+  "auth_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-music",
+  "auth_branch": "main",
+  "auth_path": "auth/admin_access.json",
+  "data_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-data",
+  "data_branch": "main",
+  "master_path": "master/brotes_maestra.sqlite",
+  "token_cipher": null,
+  "users": [
+    {
+      "admin_id": "ADM001",
+      "login_sha256": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+      "role": "ADMIN",
+      "active": true,
+      "must_change_password": true,
+      "password": {
+        "salt_b64": "trO9nTRz4XBDeac15jnYcw==",
+        "hash_b64": "S5HGL8ItxBNIOwhW2R7Kn+PcL4nM9anxFjQJmHyuxZU=",
+        "memory_kib": 65536,
+        "iterations": 3,
+        "parallelism": 2,
+        "hash_length": 32
+      },
+      "key_wrap": null
+    }
+  ]
+}
