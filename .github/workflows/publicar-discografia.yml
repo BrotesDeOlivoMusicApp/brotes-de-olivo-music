@@ -7,6 +7,9 @@ on:
       - main
     paths:
       - ".github/workflows/publicar-discografia.yml"
+      - "scripts/descargar_lote.py"
+      - "scripts/generar_catalogo.py"
+      - "schema/catalogo.schema.json"
 
 permissions:
   contents: write
