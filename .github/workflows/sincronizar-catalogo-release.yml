@@ -1,0 +1,67 @@
+name: Sincronizar catálogo desde Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sincronizar-catalogo-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Actualizar rama local
+        run: git pull --rebase origin main
+
+      - name: Descargar catálogo definitivo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download discografia-v1 -p catalogo.json --clobber
+
+      - name: Validar catálogo
+        run: |
+          python -m json.tool catalogo.json >/dev/null
+          python -m pip install --quiet jsonschema
+          python - <<'PY'
+          import json
+          from jsonschema import Draft202012Validator
+
+          with open("catalogo.json", encoding="utf-8") as f:
+              catalogo = json.load(f)
+          with open("schema/catalogo.schema.json", encoding="utf-8") as f:
+              schema = json.load(f)
+
+          if len(catalogo.get("canciones", [])) != 391:
+              raise SystemExit(f"Se esperaban 391 canciones y hay {len(catalogo.get('canciones', []))}")
+
+          errores = list(Draft202012Validator(schema).iter_errors(catalogo))
+          if errores:
+              for e in errores:
+                  print(e.message)
+              raise SystemExit(1)
+
+          print("Catálogo válido: 391 canciones")
+          PY
+
+      - name: Guardar catálogo en main
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalogo.json
+          if git diff --cached --quiet; then
+            echo "catalogo.json ya estaba actualizado"
+            exit 0
+          fi
+          git commit -m "Sincroniza catálogo definitivo de la discografía [skip ci]"
+          git fetch origin main
+          git rebase origin/main
+          git push origin main
