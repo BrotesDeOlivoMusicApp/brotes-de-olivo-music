@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "fecha_generacion": "2026-09-24",
+  "fuente": "BrotesDeOlivoMusicApp/brotes-de-olivo/FUENTES DE INFORMACION/WEB DE DISCOS",
+  "estado": "inventario_en_construccion",
+  "resumen": {
+    "discos_fuente": 32,
+    "canciones_detectadas": 0,
+    "urls_unicas": 0,
+    "incidencias": 0
+  },
+  "canciones": [],
+  "incidencias": []
+}
