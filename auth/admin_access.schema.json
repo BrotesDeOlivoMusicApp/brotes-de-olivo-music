@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brotes de Olivo admin access",
+  "type": "object",
+  "required": [
+    "format_version", "updated_at", "provisioned",
+    "auth_repository", "auth_branch", "auth_path",
+    "data_repository", "data_branch", "master_path",
+    "users"
+  ],
+  "properties": {
+    "format_version": { "const": 1 },
+    "updated_at": { "type": "string" },
+    "provisioned": { "type": "boolean" },
+    "auth_repository": { "type": "string" },
+    "auth_branch": { "type": "string" },
+    "auth_path": { "type": "string" },
+    "data_repository": { "type": "string" },
+    "data_branch": { "type": "string" },
+    "master_path": { "type": "string" },
+    "token_cipher": {
+      "anyOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/cipher" }
+      ]
+    },
+    "users": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/user" }
+    }
+  },
+  "$defs": {
+    "cipher": {
+      "type": "object",
+      "required": ["nonce_b64", "ciphertext_b64", "tag_b64"],
+      "properties": {
+        "nonce_b64": { "type": "string" },
+        "ciphertext_b64": { "type": "string" },
+        "tag_b64": { "type": "string" }
+      }
+    },
+    "password": {
+      "type": "object",
+      "required": [
+        "salt_b64", "hash_b64", "memory_kib",
+        "iterations", "parallelism", "hash_length"
+      ],
+      "properties": {
+        "salt_b64": { "type": "string" },
+        "hash_b64": { "type": "string" },
+        "memory_kib": { "type": "integer", "minimum": 8192 },
+        "iterations": { "type": "integer", "minimum": 1 },
+        "parallelism": { "type": "integer", "minimum": 1 },
+        "hash_length": { "type": "integer", "minimum": 16 }
+      }
+    },
+    "key_wrap": {
+      "type": "object",
+      "required": [
+        "kdf_salt_b64", "memory_kib", "iterations",
+        "parallelism", "nonce_b64", "ciphertext_b64", "tag_b64"
+      ],
+      "properties": {
+        "kdf_salt_b64": { "type": "string" },
+        "memory_kib": { "type": "integer" },
+        "iterations": { "type": "integer" },
+        "parallelism": { "type": "integer" },
+        "nonce_b64": { "type": "string" },
+        "ciphertext_b64": { "type": "string" },
+        "tag_b64": { "type": "string" }
+      }
+    },
+    "user": {
+      "type": "object",
+      "required": [
+        "admin_id", "login_sha256", "role", "active",
+        "must_change_password", "password", "key_wrap"
+      ],
+      "properties": {
+        "admin_id": { "type": "string" },
+        "login_sha256": { "type": "string" },
+        "role": { "enum": ["ADMIN", "GESTOR", "LECTURA"] },
+        "active": { "type": "boolean" },
+        "must_change_password": { "type": "boolean" },
+        "password": { "$ref": "#/$defs/password" },
+        "key_wrap": {
+          "anyOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/key_wrap" }
+          ]
+        }
+      }
+    }
+  }
+}
