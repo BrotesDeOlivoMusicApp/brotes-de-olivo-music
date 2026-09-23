@@ -87,6 +87,10 @@
         "version": {
           "type": "integer",
           "minimum": 1
+        },
+        "url_origen": {
+          "type": "string",
+          "minLength": 1
         }
       }
     }
