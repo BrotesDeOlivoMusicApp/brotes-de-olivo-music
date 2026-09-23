@@ -1,0 +1,95 @@
+name: Descargar lote musical
+
+on:
+  workflow_dispatch:
+    inputs:
+      inicio:
+        description: "Índice inicial (0 = primera canción con URL)"
+        required: true
+        default: "0"
+        type: string
+      cantidad:
+        description: "Número de canciones a procesar"
+        required: true
+        default: "25"
+        type: string
+      estricto:
+        description: "Fallar el job si alguna descarga da error"
+        required: true
+        default: false
+        type: boolean
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/descargar_lote.py"
+      - ".github/workflows/descargar-lote.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      INICIO: ${{ github.event_name == 'workflow_dispatch' && inputs.inicio || '0' }}
+      CANTIDAD: ${{ github.event_name == 'workflow_dispatch' && inputs.cantidad || '10' }}
+      ESTRICTO: ${{ github.event_name == 'workflow_dispatch' && inputs.estricto || 'true' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Descargar y catalogar lote
+        shell: bash
+        run: |
+          EXTRA=""
+          if [ "$ESTRICTO" = "true" ]; then
+            EXTRA="--estricto"
+          fi
+          python scripts/descargar_lote.py \
+            --fuentes fuentes.json \
+            --salida build \
+            --inicio "$INICIO" \
+            --cantidad "$CANTIDAD" \
+            $EXTRA
+
+      - name: Mostrar resumen
+        if: always()
+        run: |
+          echo "===== RESUMEN ====="
+          cat build/resumen.txt || true
+          echo "===== INCIDENCIAS ====="
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("build/manifest.json")
+          if p.exists():
+              d = json.loads(p.read_text(encoding="utf-8"))
+              for i in d.get("incidencias", []):
+                  print(i)
+          PY
+
+      - name: Subir artefacto del lote
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brotes-musica-lote-${{ env.INICIO }}-${{ env.CANTIDAD }}
+          path: |
+            build/manifest.json
+            build/resumen.txt
+            build/media/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
