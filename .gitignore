@@ -5,3 +5,4 @@
 *.flac
 *.aac
 *.ogg
+build/
