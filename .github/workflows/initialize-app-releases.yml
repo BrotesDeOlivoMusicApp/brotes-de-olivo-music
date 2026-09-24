@@ -1,0 +1,39 @@
+name: Initialize application release channels
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/initialize-app-releases.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Create stable application channels
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo="BrotesDeOlivoMusicApp/brotes-de-olivo-music"
+
+          ensure_release () {
+            tag="$1"
+            title="$2"
+            notes="$3"
+
+            if gh release view "$tag" --repo "$repo" >/dev/null 2>&1; then
+              echo "Release $tag already exists."
+            else
+              gh release create "$tag" --repo "$repo" --target main --title "$title" --notes "$notes" --latest=false
+            fi
+          }
+
+          ensure_release "windows-public" "Brotes de Olivo Music · Windows" "Canal público estable para el instalador de Windows. El asset publicado conservará el nombre BrotesDeOlivo-Setup.exe."
+          ensure_release "macos-public" "Brotes de Olivo Music · macOS" "Canal público reservado para la distribución de macOS."
+          ensure_release "android-public" "Brotes de Olivo Music · Android" "Canal público reservado para la distribución Android."
