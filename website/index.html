@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Descarga Brotes de Olivo Music para Windows, macOS, Android y iPhone/iPad.">
+  <title>Brotes de Olivo Music · Descargas</title>
+  <style>
+    :root{--olive:#66734b;--olive-dark:#4a5735;--cream:#f2efe8;--ink:#22251f;--muted:#65685f;--card:#ffffffeb}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+    .page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;position:relative;isolation:isolate;overflow:hidden}
+    .page:before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/branding/fundadores_coche_hero.jpg") center/cover no-repeat fixed}
+    .page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(242,239,232,.97),rgba(242,239,232,.82))}
+    header,main,footer{width:min(1160px,calc(100% - 36px));margin:auto} header{padding:26px 0 8px}.logo{width:min(315px,75vw);height:auto}
+    main{padding:34px 0 54px}.hero{max-width:760px}.eyebrow{margin:0 0 10px;color:var(--olive-dark);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(2rem,5vw,3.5rem);line-height:1.03;letter-spacing:-.035em}.intro{max-width:690px;color:var(--muted);font-size:1.08rem;line-height:1.6;margin:18px 0 26px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:900px}.card{display:flex;gap:15px;align-items:center;padding:18px;border:1px solid rgba(255,255,255,.82);border-radius:17px;background:var(--card);box-shadow:0 12px 34px rgba(44,49,35,.13);backdrop-filter:blur(8px)}
+    .icon{display:grid;place-items:center;width:50px;height:50px;flex:0 0 50px;border-radius:12px;background:#e8e4da;color:var(--olive-dark);font-size:1.45rem;font-weight:800}.copy{min-width:0;flex:1}.copy strong,.copy span{display:block}.copy span{margin-top:4px;color:var(--muted);font-size:.88rem}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:9px;background:var(--olive);color:#fff;text-decoration:none;font-weight:750;white-space:nowrap}.button:hover{background:var(--olive-dark)}
+    .card.unavailable{opacity:.58;filter:saturate(.55)}.card.unavailable .button{pointer-events:none;background:#8b8d86;color:#eee;cursor:not-allowed}.status{font-size:.78rem!important;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .note{max-width:900px;margin:18px 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}footer{padding:0 0 24px;color:#4c5045;font-size:.82rem}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.card{align-items:flex-start;flex-wrap:wrap}.button{width:100%}main{padding-top:22px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header><img class="logo" src="assets/branding/logo_header_web.webp" alt="Brotes de Olivo Music"></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Aplicaciones oficiales</p>
+      <h1>Tu música, siempre cerca.</h1>
+      <p class="intro">Descarga Brotes de Olivo Music. La versión para Windows estará disponible primero; el resto de plataformas se irán habilitando sin cambiar esta página.</p>
+    </section>
+    <section class="grid" id="platforms" aria-label="Plataformas">
+      <article class="card unavailable" data-platform="windows"><div class="icon">⊞</div><div class="copy"><strong>Windows</strong><span class="status">Comprobando disponibilidad…</span><span>Escritorio Windows</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
+      <article class="card unavailable" data-platform="macos"><div class="icon"></div><div class="copy"><strong>macOS</strong><span class="status">Próximamente</span><span>Ordenadores Mac</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
+      <article class="card unavailable" data-platform="android"><div class="icon">A</div><div class="copy"><strong>Android</strong><span class="status">Próximamente</span><span>Móviles y tablets Android</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
+      <article class="card unavailable" data-platform="ios"><div class="icon"></div><div class="copy"><strong>iPhone / iPad</strong><span class="status">Próximamente</span><span>iOS y iPadOS</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
+    </section>
+    <p class="note">Las nuevas versiones sustituyen a la publicación anterior de cada plataforma manteniendo una dirección estable. No necesitas buscar enlaces distintos para cada actualización.</p>
+  </main>
+  <footer>© Brotes de Olivo Music</footer>
+</div>
+<script>
+const manifestUrl="https://raw.githubusercontent.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/main/downloads/manifest.json";
+fetch(manifestUrl,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("manifest");return r.json()}).then(data=>{
+  for(const [key,p] of Object.entries(data.platforms||{})){
+    const card=document.querySelector('[data-platform="'+key+'"]'); if(!card)continue;
+    const status=card.querySelector(".status"),button=card.querySelector(".button");
+    if(p.available&&p.url){
+      card.classList.remove("unavailable"); status.textContent=p.version?"Disponible · v"+p.version:"Disponible";
+      button.textContent="Descargar"; button.href=p.url; button.removeAttribute("aria-disabled");
+    }else{status.textContent="Próximamente";button.textContent="Próximamente";button.removeAttribute("href");button.setAttribute("aria-disabled","true")}
+  }
+}).catch(()=>{document.querySelectorAll(".status").forEach((e,i)=>{if(i===0)e.textContent="Próximamente"})});
+</script>
+</body>
+</html>
