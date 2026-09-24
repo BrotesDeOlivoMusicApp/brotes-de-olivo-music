@@ -1,0 +1,89 @@
+{
+  "data_version": "2026.09.24.1",
+  "cancionero": {
+    "cancionero_id": "CANOF20260924",
+    "nombre": "Cancionero de demostración",
+    "evento_finalidad": "Demostración funcional de sincronización y cancioneros",
+    "fecha_evento": "2026-09-24",
+    "lugar": "Extremadura",
+    "fecha_creacion": "2026-09-24T13:58:00+02:00",
+    "fecha_modificacion": "2026-09-24T13:58:00+02:00",
+    "es_publico": true,
+    "creador_interno": "Brotes de Olivo Music",
+    "observaciones_internas": "Creado por solicitud del propietario para validar la sincronización remota de datos y la visualización de cancioneros oficiales."
+  },
+  "canciones": [
+    {
+      "numero_orden": 1,
+      "cancion_id": "C0001",
+      "titulo": "Allanad los Caminos",
+      "disco_id": "D001",
+      "numero_pista": 1
+    },
+    {
+      "numero_orden": 2,
+      "cancion_id": "C0002",
+      "titulo": "Vivid en el Señor",
+      "disco_id": "D001",
+      "numero_pista": 2
+    },
+    {
+      "numero_orden": 3,
+      "cancion_id": "C0003",
+      "titulo": "Al Buscar en la Palabra",
+      "disco_id": "D002",
+      "numero_pista": 1
+    },
+    {
+      "numero_orden": 4,
+      "cancion_id": "C0004",
+      "titulo": "Oscar Romero",
+      "disco_id": "D002",
+      "numero_pista": 2
+    },
+    {
+      "numero_orden": 5,
+      "cancion_id": "C0005",
+      "titulo": "Mi Palabra No Pasará",
+      "disco_id": "D002",
+      "numero_pista": 3
+    },
+    {
+      "numero_orden": 6,
+      "cancion_id": "C0006",
+      "titulo": "Y Vio Dios Que Era Nuevo",
+      "disco_id": "D002",
+      "numero_pista": 4
+    },
+    {
+      "numero_orden": 7,
+      "cancion_id": "C0007",
+      "titulo": "El Reto de Dios",
+      "disco_id": "D002",
+      "numero_pista": 5
+    },
+    {
+      "numero_orden": 8,
+      "cancion_id": "C0008",
+      "titulo": "No Te Pude Ver",
+      "disco_id": "D002",
+      "numero_pista": 6
+    },
+    {
+      "numero_orden": 9,
+      "cancion_id": "C0009",
+      "titulo": "Sueños de la Tierra",
+      "disco_id": "D002",
+      "numero_pista": 7
+    },
+    {
+      "numero_orden": 10,
+      "cancion_id": "C0010",
+      "titulo": "Hacen Falta Sí",
+      "disco_id": "D002",
+      "numero_pista": 8
+    }
+  ],
+  "sha256_public": "25504f6f9df89656b336b4c5589930b44b7157956121dbde5c5627ecbdff121c",
+  "sha256_master": "56187e256b1a354f3ba465dc2e26153ac85266f649867a8deefc8e1e58410b0b"
+}

@@ -1,0 +1,8 @@
+{
+  "dataVersion": "2026.09.24.1",
+  "schemaVersion": 2,
+  "file": "brotes_publica.sqlite",
+  "sha256": "25504f6f9df89656b336b4c5589930b44b7157956121dbde5c5627ecbdff121c",
+  "date": "2026-09-24",
+  "notes": "Añade CANOF20260924, cancionero oficial de demostración con 10 canciones para validar sincronización remota."
+}
