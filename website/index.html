@@ -18,7 +18,7 @@
     .icon{display:grid;place-items:center;width:50px;height:50px;flex:0 0 50px;border-radius:12px;background:#e8e4da;color:var(--olive-dark);font-size:1.45rem;font-weight:800}.copy{min-width:0;flex:1}.copy strong,.copy span{display:block}.copy span{margin-top:4px;color:var(--muted);font-size:.88rem}
     .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:9px;background:var(--olive);color:#fff;text-decoration:none;font-weight:750;white-space:nowrap}.button:hover{background:var(--olive-dark)}
     .card.unavailable{opacity:.58;filter:saturate(.55)}.card.unavailable .button{pointer-events:none;background:#8b8d86;color:#eee;cursor:not-allowed}.status{font-size:.78rem!important;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-    .note{max-width:900px;margin:18px 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}footer{padding:0 0 24px;color:#4c5045;font-size:.82rem}
+    .note{max-width:900px;margin:18px 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:900px;margin:22px 0 0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.8)}.contact strong{margin-right:4px}.contact a{color:var(--olive-dark);font-weight:700;text-decoration:none}.contact a:hover{text-decoration:underline}.sep{color:#9a9d95}footer{padding:0 0 24px;color:#4c5045;font-size:.82rem}
     @media(max-width:760px){.grid{grid-template-columns:1fr}.card{align-items:flex-start;flex-wrap:wrap}.button{width:100%}main{padding-top:22px}}
   </style>
 </head>
@@ -38,6 +38,12 @@
       <article class="card unavailable" data-platform="ios"><div class="icon"></div><div class="copy"><strong>iPhone / iPad</strong><span class="status">Próximamente</span><span>iOS y iPadOS</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
     </section>
     <p class="note">Las nuevas versiones sustituyen a la publicación anterior de cada plataforma manteniendo una dirección estable. No necesitas buscar enlaces distintos para cada actualización.</p>
+    <div class="contact" aria-label="Contacto y redes">
+      <strong>Brotes de Olivo</strong>
+      <a href="https://www.instagram.com/brotesdeolivo/" target="_blank" rel="noopener noreferrer">Instagram @brotesdeolivo</a>
+      <span class="sep">·</span>
+      <a href="mailto:viniloencamino@brotesdeolivo.es">Pedidos de discos: viniloencamino@brotesdeolivo.es</a>
+    </div>
   </main>
   <footer>© Brotes de Olivo Music</footer>
 </div>
