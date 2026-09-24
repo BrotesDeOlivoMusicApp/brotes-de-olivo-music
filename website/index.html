@@ -19,11 +19,31 @@
     .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:9px;background:var(--olive);color:#fff;text-decoration:none;font-weight:750;white-space:nowrap}.button:hover{background:var(--olive-dark)}
     .card.unavailable{opacity:.58;filter:saturate(.55)}.card.unavailable .button{pointer-events:none;background:#8b8d86;color:#eee;cursor:not-allowed}.status{font-size:.78rem!important;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
     .note{max-width:900px;margin:18px 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:900px;margin:22px 0 0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.8)}.contact strong{margin-right:4px}.contact a{color:var(--olive-dark);font-weight:700;text-decoration:none}.contact a:hover{text-decoration:underline}.sep{color:#9a9d95}footer{padding:0 0 24px;color:#4c5045;font-size:.82rem}
+    .access-gate{min-height:100vh;display:grid;place-items:center;padding:24px;position:relative;isolation:isolate;background:var(--cream)}
+    .access-gate:before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/branding/fundadores_coche_hero.jpg") center/cover no-repeat}
+    .access-gate:after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(242,239,232,.91)}
+    .access-box{width:min(430px,100%);padding:28px;border-radius:18px;background:rgba(255,255,255,.94);box-shadow:0 16px 45px rgba(44,49,35,.18);text-align:center}
+    .access-box img{width:min(260px,80%);height:auto;margin-bottom:18px}.access-box h1{font-size:1.8rem;margin-bottom:10px}.access-box p{color:var(--muted);line-height:1.5}
+    .access-box form{display:grid;gap:12px;margin-top:18px}.access-box input{width:100%;min-height:46px;border:1px solid #c9c9c2;border-radius:9px;padding:10px 12px;font:inherit}
+    .access-box button{min-height:46px;border:0;border-radius:9px;background:var(--olive);color:#fff;font:inherit;font-weight:750;cursor:pointer}.access-box button:hover{background:var(--olive-dark)}
+    .access-error{min-height:1.2em;margin:0!important;color:#8b2d2d!important;font-size:.9rem}.hidden{display:none!important}
     @media(max-width:760px){.grid{grid-template-columns:1fr}.card{align-items:flex-start;flex-wrap:wrap}.button{width:100%}main{padding-top:22px}}
   </style>
 </head>
 <body>
-<div class="page">
+<div class="access-gate" id="accessGate">
+  <div class="access-box">
+    <img src="assets/branding/logo_header_web.webp" alt="Brotes de Olivo Music">
+    <h1>Acceso provisional</h1>
+    <p>Esta zona está en preparación. Introduce la contraseña para continuar.</p>
+    <form id="accessForm">
+      <input id="accessPassword" type="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" required>
+      <button type="submit">Entrar</button>
+      <p class="access-error" id="accessError" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<div class="page hidden" id="siteContent">
   <header><img class="logo" src="assets/branding/logo_header_web.webp" alt="Brotes de Olivo Music"></header>
   <main>
     <section class="hero">
@@ -48,6 +68,44 @@
   <footer>© Brotes de Olivo Music</footer>
 </div>
 <script>
+const ACCESS_HASH="1455c0dec3d8d4f9b321903e20b4c548219e5f13b63cd157fb9d833c334672e5";
+const gate=document.getElementById("accessGate");
+const site=document.getElementById("siteContent");
+const form=document.getElementById("accessForm");
+const input=document.getElementById("accessPassword");
+const error=document.getElementById("accessError");
+
+function unlockSite(){
+  gate.classList.add("hidden");
+  site.classList.remove("hidden");
+}
+
+async function sha256Hex(value){
+  const data=new TextEncoder().encode(value);
+  const digest=await crypto.subtle.digest("SHA-256",data);
+  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+
+if(sessionStorage.getItem("brotesAccess")==="1"){
+  unlockSite();
+}else{
+  input.focus();
+}
+
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  error.textContent="";
+  const hash=await sha256Hex(input.value);
+  if(hash===ACCESS_HASH){
+    sessionStorage.setItem("brotesAccess","1");
+    input.value="";
+    unlockSite();
+  }else{
+    error.textContent="Contraseña incorrecta.";
+    input.select();
+  }
+});
+
 const manifestUrl="downloads/manifest.json";
 fetch(manifestUrl,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("manifest");return r.json()}).then(data=>{
   for(const [key,p] of Object.entries(data.platforms||{})){
