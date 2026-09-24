@@ -1,10 +1,24 @@
-# Brotes de Olivo Music - Repositorio musical
+# Brotes de Olivo Music - Repositorio público
 
-Repositorio oficial para el catálogo y la distribución de contenidos musicales utilizados por las aplicaciones de Brotes de Olivo Music.
+Repositorio público oficial para los contenidos musicales y la distribución de las aplicaciones de Brotes de Olivo Music.
+
+## Aplicaciones
+
+La infraestructura de descarga está en `downloads/` y la web pública en `website/`.
+
+Se han reservado cuatro canales:
+- Windows
+- macOS
+- Android
+- iOS / iPadOS
+
+Los binarios de aplicaciones no se guardan en el historial Git. Se publican como assets de GitHub Releases con nombres estables y la web obtiene su estado desde `downloads/manifest.json`.
+
+Mientras una plataforma no esté disponible, permanece visible en la web como **Próximamente** sin enlace activo.
 
 ## Distribución de los archivos musicales
 
-Los archivos musicales se distribuirán mediante **GitHub Releases**. No deben subirse directamente al historial Git del repositorio.
+Los archivos musicales se distribuyen mediante **GitHub Releases**. No deben subirse directamente al historial Git del repositorio.
 
 Los formatos multimedia están excluidos mediante `.gitignore` para evitar que archivos pesados como MP3, MP4, M4A, WAV, FLAC, AAC u OGG formen parte del historial normal de Git.
 
