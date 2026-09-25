@@ -39,8 +39,8 @@ jobs:
           with open("schema/catalogo.schema.json", encoding="utf-8") as f:
               schema = json.load(f)
 
-          if len(catalogo.get("canciones", [])) != 391:
-              raise SystemExit(f"Se esperaban 391 canciones y hay {len(catalogo.get('canciones', []))}")
+          if len(catalogo.get("canciones", [])) != 402:
+              raise SystemExit(f"Se esperaban 402 canciones y hay {len(catalogo.get('canciones', []))}")
 
           errores = list(Draft202012Validator(schema).iter_errors(catalogo))
           if errores:
@@ -48,7 +48,7 @@ jobs:
                   print(e.message)
               raise SystemExit(1)
 
-          print("Catálogo válido: 391 canciones")
+          print("Catálogo válido: 402 canciones")
           PY
 
       - name: Guardar catálogo en main
