@@ -1,8 +1,8 @@
 {
-  "dataVersion": "2026.09.25.2",
+  "dataVersion": "2026.09.25.3",
   "schemaVersion": 3,
   "file": "brotes_publica.sqlite",
-  "sha256": "31a79cd991d42f2c1f2433c3af77c6692cad21532ee7bed34096202c295593b3",
+  "sha256": "c413a83a1ae8a2359040aedc6430da1e200f37ed17dbe97632409381af5c372d",
   "date": "2026-09-25",
-  "notes": "Corrige El Forito a 1972 y documenta que es un single independiente publicado originalmente por Polydor (20 62 089)."
+  "notes": "Completa los códigos definitivos de CREO EN TI (2001): EAN-13 8433391982761 y referencia CUP2016617."
 }
