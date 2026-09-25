@@ -11,7 +11,7 @@ DISC_NOTES={
  "D001":"Single promocional de «El Evangelio según San Juan».",
  "D026":"Single promocional de «Entre el Cielo y la Tierra».",
 }
-TEXT_COLUMNS=("letra","url_audio_web","isrc","grupo_propietario","estudio_grabacion",
+TEXT_COLUMNS=("letra","url_audio_web","isrc","grupo_propietario",
               "artista_principal","url_youtube","url_spotify","url_otro","tipo_contenido")
 
 def has_column(db,table,column):
