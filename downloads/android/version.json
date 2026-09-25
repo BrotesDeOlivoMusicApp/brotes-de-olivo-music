@@ -1,8 +1,8 @@
 {
   "platform": "android",
-  "available": false,
-  "version": null,
+  "available": true,
+  "version": "0.0.2",
   "file": "BrotesDeOlivo-Android.apk",
-  "url": null,
+  "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android.apk",
   "release": "android-public"
 }

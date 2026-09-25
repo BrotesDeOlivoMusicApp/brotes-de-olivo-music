@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T08:02:19Z",
+  "updated_at": "2026-09-25T13:47:09Z",
   "platforms": {
     "windows": {
       "label": "Windows",
@@ -18,9 +18,9 @@
     },
     "android": {
       "label": "Android",
-      "available": false,
-      "version": null,
-      "url": null,
+      "available": true,
+      "version": "0.0.2",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android.apk",
       "file": "BrotesDeOlivo-Android.apk"
     },
     "ios": {
