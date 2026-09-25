@@ -1,8 +1,8 @@
 {
   "dataVersion": "2026.09.25.1",
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "file": "brotes_publica.sqlite",
-  "sha256": "a8f9c339c079259bfd3e0ca94542311297dbc1dc184f2e0a49703323ab0abeed",
+  "sha256": "4c58ed3c8522fd17816a18a2b4ecb9b8b2638bf47afe4571f3e19f5422702c14",
   "date": "2026-09-25",
-  "notes": "Añade observaciones de singles promocionales y completa metadatos faltantes de sus canciones equivalentes."
+  "notes": "Añade observaciones de singles promocionales y completa metadatos faltantes de sus canciones equivalentes. Elimina estudio_grabacion del esquema público."
 }
