@@ -1,8 +1,8 @@
 {
-  "dataVersion": "2026.09.25.4",
-  "schemaVersion": 4,
+  "dataVersion": "2026.09.26.1",
+  "schemaVersion": 6,
   "file": "brotes_publica.sqlite",
-  "sha256": "1789c273b10fb367728db3ca6bb1ba78b48cbdcd9593dbe365f2195373302647",
-  "date": "2026-09-25",
-  "notes": "Completa 4 enlaces externos confirmados y 23 duraciones de 25 Años en Búsqueda Vol. I y II. El antiguo campo de estudio de grabación ha sido retirado del esquema público."
+  "sha256": "b10b7e155dc0c1e44021552508ecab19e9b20e14f56b369f5255c04005a3cc96",
+  "date": "2026-09-26",
+  "notes": "Incorpora la cronología discográfica 1971-2026: añade La Biblia en canciones (1986), fija las fechas de la cronología como referencia, corrige María desconocida a 1979 y añade formato, discográfica/editor y observaciones documentadas."
 }
