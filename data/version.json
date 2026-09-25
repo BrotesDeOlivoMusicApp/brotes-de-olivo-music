@@ -1,8 +1,8 @@
 {
-  "dataVersion": "2026.09.26.1",
-  "schemaVersion": 6,
+  "dataVersion": "2026.09.26.2",
+  "schemaVersion": 7,
   "file": "brotes_publica.sqlite",
-  "sha256": "b10b7e155dc0c1e44021552508ecab19e9b20e14f56b369f5255c04005a3cc96",
+  "sha256": "b7c7b2f183f5b4238c57be3e86ff66b23abe2d8c4034b575ddb55a06428db91e",
   "date": "2026-09-26",
-  "notes": "Incorpora la cronología discográfica 1971-2026: añade La Biblia en canciones (1986), fija las fechas de la cronología como referencia, corrige María desconocida a 1979 y añade formato, discográfica/editor y observaciones documentadas."
+  "notes": "Añade orden_cronologico 1-33 a los discos y fija el orden canónico de visualización desde el más antiguo al más reciente."
 }
