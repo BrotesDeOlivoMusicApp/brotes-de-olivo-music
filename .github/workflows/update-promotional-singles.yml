@@ -1,10 +1,5 @@
 name: Actualizar singles promocionales
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - "scripts/apply_promotional_single_metadata.py"
-      - ".github/workflows/update-promotional-singles.yml"
   workflow_dispatch:
 permissions:
   contents: write
