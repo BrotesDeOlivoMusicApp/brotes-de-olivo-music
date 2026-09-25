@@ -1,0 +1,49 @@
+name: Actualizar singles promocionales
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "scripts/apply_promotional_single_metadata.py"
+      - ".github/workflows/update-promotional-singles.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: update-promotional-singles
+  cancel-in-progress: false
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Actualizar base distribuida
+        run: python scripts/apply_promotional_single_metadata.py
+      - name: Validar
+        run: |
+          python - <<'PY'
+          import sqlite3
+          db=sqlite3.connect("data/brotes_publica.sqlite")
+          assert db.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+          assert not db.execute("PRAGMA foreign_key_check").fetchall()
+          for song in ("C0001","C0002","C0342","C0343"):
+              assert db.execute("SELECT letra FROM cancion WHERE cancion_id=?",(song,)).fetchone()[0]
+          assert db.execute("SELECT observaciones FROM disco WHERE disco_id='D001'").fetchone()[0]
+          assert db.execute("SELECT observaciones FROM disco WHERE disco_id='D026'").fetchone()[0]
+          print("Distribución OK")
+          PY
+      - name: Guardar cambios
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/brotes_publica.sqlite data/version.json
+          if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
+          git commit -m "Actualiza singles promocionales"
+          git fetch origin main
+          git rebase origin/main
+          git push origin main
