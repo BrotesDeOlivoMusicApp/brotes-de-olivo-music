@@ -1,8 +1,8 @@
 {
-  "dataVersion": "2026.09.25.4",
+  "dataVersion": "2026.09.25.1",
   "schemaVersion": 3,
   "file": "brotes_publica.sqlite",
-  "sha256": "c238fa4abf69e841c288d7b1bc3b5fe3f973a30a57c785881ff96a8e3f10971f",
+  "sha256": "a8f9c339c079259bfd3e0ca94542311297dbc1dc184f2e0a49703323ab0abeed",
   "date": "2026-09-25",
-  "notes": "Completa 4 enlaces externos confirmados y 23 duraciones de 25 Años en Búsqueda Vol. I y II."
+  "notes": "Añade observaciones de singles promocionales y completa metadatos faltantes de sus canciones equivalentes."
 }
