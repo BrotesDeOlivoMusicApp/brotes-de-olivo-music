@@ -17,8 +17,8 @@ env:
   WINDOWS_URL: "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe"
   TEMPLATE_URL: "https://github.com/Sikarugir-App/Wrapper/releases/download/v1.0/Template-1.0.11.tar.xz"
   TEMPLATE_SHA256: "9fa15479e7ff6abd99c1d07be285fb95f41fc6991586502427152b1f7d6ccb8a"
-  ENGINE_URL: "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineCX24.0.7_6.tar.xz"
-  ENGINE_SHA256: "cff03a9e86024464589383a9c1451bd1bb87c783d5753e0a4641fc3af0de8a12"
+  ENGINE_URL: "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineSikarugir10.0_6.tar.xz"
+  ENGINE_SHA256: "9da7ee0cbf386522f3a9906943726d9c3c125dbbd9ab120e3cde80e88d6091b2"
   DMG_NAME: "BrotesDeOlivo-macOS.dmg"
 
 jobs:
@@ -139,8 +139,10 @@ jobs:
           rm -f "$MARKER" "$LOG"
 
           set +e
-          env WINEPREFIX="$PREFIX" WINEDEBUG=-all WINEESYNC=1 WINEMSYNC=1 \
+          env WINEPREFIX="$PREFIX" WINEDEBUG=err+all WINEESYNC=1 WINEMSYNC=1 \
             BROTES_SMOKE_MARKER='C:\brotes-smoke.txt' \
+            COREHOST_TRACE=1 COREHOST_TRACEFILE='C:\corehost-trace.txt' \
+            DOTNET_HOST_TRACE=1 DOTNET_HOST_TRACEFILE='C:\dotnet-host-trace.txt' \
             DYLD_FALLBACK_LIBRARY_PATH="$FRAMEWORKS:/usr/lib" \
             "$WINE" 'C:\BrotesDeOlivo\app\BrotesDeOlivo.exe' >"$LOG" 2>&1 &
           PID=$!
@@ -166,6 +168,17 @@ jobs:
           rm -f "$MARKER"
 
           echo "Smoke result: $RESULT"
+
+          echo "----- Brotes startup diagnostics -----"
+          find "$PREFIX/drive_c/users" -type f -path '*/AppData/Local/BrotesDeOlivo/startup-error.log' -print -exec cat {} \; 2>/dev/null || true
+          for trace in "$PREFIX/drive_c/corehost-trace.txt" "$PREFIX/drive_c/dotnet-host-trace.txt"; do
+            if test -s "$trace"; then
+              echo "----- $(basename "$trace") -----"
+              tail -200 "$trace"
+            fi
+          done
+          echo "--------------------------------------"
+
           if test -s "$LOG"; then
             echo "----- Wine smoke log -----"
             tail -200 "$LOG"
