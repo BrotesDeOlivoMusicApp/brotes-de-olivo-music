@@ -1,0 +1,28 @@
+name: Publish macOS installation instructions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "downloads/macos/INSTRUCCIONES_INSTALACION_MAC.txt"
+      - ".github/workflows/publish-macos-instructions.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish instructions next to macOS DMG
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test -s downloads/macos/INSTRUCCIONES_INSTALACION_MAC.txt
+          gh release view macos-public >/dev/null
+          gh release upload macos-public downloads/macos/INSTRUCCIONES_INSTALACION_MAC.txt --clobber
