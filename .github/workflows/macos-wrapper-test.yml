@@ -13,7 +13,7 @@ permissions:
   id-token: write
 
 env:
-  APP_VERSION: "0.1.16-test1"
+  APP_VERSION: "0.1.16-test2"
   WINDOWS_URL: "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe"
   TEMPLATE_URL: "https://github.com/Sikarugir-App/Wrapper/releases/download/v1.0/Template-1.0.11.tar.xz"
   TEMPLATE_SHA256: "9fa15479e7ff6abd99c1d07be285fb95f41fc6991586502427152b1f7d6ccb8a"
@@ -62,11 +62,10 @@ jobs:
           mkdir -p "$WRAPPER/Contents/SharedSupport"
           ditto work/engine/wswine.bundle "$WRAPPER/Contents/SharedSupport/wine"
 
-          # Do not ship or enable the optional closed-source D3DMetal/GPTK renderer.
-          # Brotes de Olivo uses the ordinary Wine/WineD3D path.
-          find "$WRAPPER/Contents" -depth \
-            \( -iname '*d3dmetal*' -o -iname '*winemetal*' -o -iname '*gameportingtoolkit*' \) \
-            -print -exec rm -rf {} \; || true
+          # Do not activate the optional D3DMetal/GPTK renderer.
+          # IMPORTANT: keep Wine's own winemetal DLLs; removing them can break the engine.
+          rm -rf "$WRAPPER/Contents/Frameworks/renderer/d3dmetal" \
+                 "$WRAPPER/Contents/Frameworks/renderer/apple_gptk" 2>/dev/null || true
 
           # Wine engine libraries are looked up from SharedSupport at runtime.
           for lib in "$WRAPPER/Contents/Frameworks/"*.dylib; do
@@ -90,6 +89,14 @@ jobs:
 
           wine_run wineboot -i
           wine_run reg add 'HKCU\Software\Wine' /v Version /d win10 /f >/dev/null
+
+          # WPF under Wine/macOS is materially more stable with the Avalon
+          # hardware rendering pipeline disabled. Microsoft documents this
+          # registry switch and current Wine/macOS WPF repros use the same fix.
+          wine_run reg add 'HKCU\Software\Microsoft\Avalon.Graphics' \
+            /v DisableHWAcceleration /t REG_DWORD /d 1 /f >/dev/null
+          wine_run reg add 'HKCU\Software\Microsoft\Avalon.Graphics' \
+            /v MaxMultisampleType /t REG_DWORD /d 0 /f >/dev/null
 
           # Install the current public Windows build inside the Wine prefix.
           # This avoids relying on third-party Inno extractors and tests the real installer.
@@ -120,6 +127,8 @@ jobs:
           plist_string "CFBundleShortVersionString" "$APP_VERSION"
           plist_string "CFBundleVersion" "1"
           plist_string "WINEDEBUG" "-all"
+          plist_string "D3DMETAL" "false"
+          plist_string "D3DMETAL_FORCE" "false"
 
           echo "Wrapper assembled:"
           du -sh "$WRAPPER"
@@ -244,7 +253,7 @@ jobs:
           from datetime import datetime, timezone
           from pathlib import Path
 
-          version = "0.1.16-test1"
+          version = "0.1.16-test2"
           filename = "BrotesDeOlivo-macOS.dmg"
           url = "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/" + filename
           now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
