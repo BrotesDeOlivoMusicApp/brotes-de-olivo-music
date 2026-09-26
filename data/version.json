@@ -1,9 +1,9 @@
 {
   "dataVersion": "2026.09.27.1",
   "schemaVersion": 7,
+  "minAppVersion": "0.1.20",
   "file": "brotes_publica.sqlite",
-  "sha256": "4e2be125560f39ce72a56876eea1e439439ddd018f2062b188b5d5550b774a15",
+  "sha256": "7f33d52e6adfe74ca577320414d2ebf7b482b790bbb097b4b44d116f04c82fd4",
   "date": "2026-09-27",
-  "notes": "Normaliza los 25 enlaces de YouTube de discos para abrirlos mediante www.youtube.com, conservando las playlists y eliminando parámetros de compartición innecesarios.",
-  "minAppVersion": "0.1.20"
+  "notes": "Normaliza los 25 enlaces de YouTube de discos para abrirlos mediante www.youtube.com, conservando las playlists y eliminando parámetros de compartición innecesarios."
 }
