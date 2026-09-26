@@ -1,8 +1,8 @@
 {
-  "dataVersion": "2026.09.26.2",
+  "dataVersion": "2026.09.26.4",
   "schemaVersion": 7,
   "file": "brotes_publica.sqlite",
-  "sha256": "b7c7b2f183f5b4238c57be3e86ff66b23abe2d8c4034b575ddb55a06428db91e",
+  "sha256": "e9648270c04382b4525b23ead645406b98a86ba42cfcd33cf3b749a91b42f1fc",
   "date": "2026-09-26",
-  "notes": "Añade orden_cronologico 1-33 a los discos y fija el orden canónico de visualización desde el más antiguo al más reciente."
+  "notes": "LA NUEVA HUMANIDAD: incorpora los 14 textos recitados impresos en la contraportada y corrige sus títulos tomando el disco físico como fuente de verdad."
 }
