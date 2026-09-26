@@ -30,13 +30,6 @@ jobs:
       - name: Checkout public distribution repository
         uses: actions/checkout@v4
 
-      - name: Install Inno Setup extractor
-        shell: bash
-        run: |
-          set -euo pipefail
-          brew list innoextract >/dev/null 2>&1 || brew install innoextract
-          innoextract --version
-
       - name: Download Windows package and pinned free wrapper components
         shell: bash
         run: |
@@ -98,14 +91,14 @@ jobs:
           wine_run wineboot -i
           wine_run reg add 'HKCU\Software\Wine' /v Version /d win10 /f >/dev/null
 
-          mkdir -p work/extracted
-          innoextract -q -d work/extracted work/BrotesDeOlivo-Setup.exe
-          test -f work/extracted/app/BrotesDeOlivo.exe
-          test -f work/extracted/app/app/BrotesDeOlivo.exe
-          test -f work/extracted/app/app/data/brotes_publica.sqlite
+          # Install the current public Windows build inside the Wine prefix.
+          # This avoids relying on third-party Inno extractors and tests the real installer.
+          wine_run "$PWD/work/BrotesDeOlivo-Setup.exe" \
+            /VERYSILENT /SUPPRESSMSGBOXES /NORESTART '/DIR=C:\BrotesDeOlivo'
 
-          mkdir -p "$PREFIX/drive_c/BrotesDeOlivo"
-          ditto work/extracted/app "$PREFIX/drive_c/BrotesDeOlivo"
+          test -f "$PREFIX/drive_c/BrotesDeOlivo/BrotesDeOlivo.exe"
+          test -f "$PREFIX/drive_c/BrotesDeOlivo/app/BrotesDeOlivo.exe"
+          test -f "$PREFIX/drive_c/BrotesDeOlivo/app/data/brotes_publica.sqlite"
 
           if test ! -e "$WRAPPER/Contents/drive_c"; then
             ln -s "SharedSupport/prefix/drive_c" "$WRAPPER/Contents/drive_c"
