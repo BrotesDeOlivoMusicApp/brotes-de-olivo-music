@@ -236,15 +236,15 @@ jobs:
             echo "::warning::The process stayed alive but CI could not confirm MainWindow.Loaded. The real-Mac test remains necessary."
           fi
 
-      - name: Ad-hoc sign and create one DMG file
+      - name: Create one unsigned DMG file
         shell: bash
         run: |
           set -euo pipefail
           WRAPPER="$PWD/artifacts/Brotes de Olivo.app"
 
+          # Zero-cost test distribution: do not codesign/notarize the wrapper.
+          # Gatekeeper may require "Open Anyway" on the tester's first launch.
           xattr -dr com.apple.quarantine "$WRAPPER" 2>/dev/null || true
-          codesign --force --deep --sign - --timestamp=none "$WRAPPER"
-          codesign --verify --deep "$WRAPPER"
 
           DMGROOT="$RUNNER_TEMP/brotes-dmg"
           rm -rf "$DMGROOT"
