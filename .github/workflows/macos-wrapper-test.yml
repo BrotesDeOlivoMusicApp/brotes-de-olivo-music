@@ -13,12 +13,12 @@ permissions:
   id-token: write
 
 env:
-  APP_VERSION: "0.1.16-test3"
+  APP_VERSION: "0.1.16-test4"
   WINDOWS_URL: "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe"
   TEMPLATE_URL: "https://github.com/Sikarugir-App/Template/releases/download/v1.0/Template-1.0.18.tar.xz"
   TEMPLATE_SHA256: "00d1fcb66aebdef51981b26476a2fe8cd600c39552166f0e733f57272d9e97b3"
-  ENGINE_URL: "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineSikarugir11.0.tar.xz"
-  ENGINE_SHA256: "dcb3de3acab2eaf37591768dc7f6f6c20fa8e6b69c88ddd61e63798c02befcf9"
+  ENGINE_URL: "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineSikarugir10.0_6.tar.xz"
+  ENGINE_SHA256: "9da7ee0cbf386522f3a9906943726d9c3c125dbbd9ab120e3cde80e88d6091b2"
   DMG_NAME: "BrotesDeOlivo-macOS.dmg"
 
 jobs:
@@ -93,6 +93,7 @@ jobs:
           PREFIX="$WRAPPER/Contents/SharedSupport/prefix"
           FRAMEWORKS="$WRAPPER/Contents/Frameworks"
           test -x "$WINE"
+          "$WINE" --version || true
 
           wine_run () {
             env WINEPREFIX="$PREFIX" WINEDEBUG=-all WINEESYNC=1 WINEMSYNC=1 \
@@ -266,7 +267,7 @@ jobs:
           from datetime import datetime, timezone
           from pathlib import Path
 
-          version = "0.1.16-test3"
+          version = "0.1.16-test4"
           filename = "BrotesDeOlivo-macOS.dmg"
           url = "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/" + filename
           now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
