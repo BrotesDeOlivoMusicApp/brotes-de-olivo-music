@@ -1,0 +1,312 @@
+name: macOS wrapper test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/macos-wrapper-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  APP_VERSION: "0.1.16-test1"
+  WINDOWS_URL: "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe"
+  TEMPLATE_URL: "https://github.com/Sikarugir-App/Wrapper/releases/download/v1.0/Template-1.0.11.tar.xz"
+  TEMPLATE_SHA256: "9fa15479e7ff6abd99c1d07be285fb95f41fc6991586502427152b1f7d6ccb8a"
+  ENGINE_URL: "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineCX24.0.7_6.tar.xz"
+  ENGINE_SHA256: "cff03a9e86024464589383a9c1451bd1bb87c783d5753e0a4641fc3af0de8a12"
+  DMG_NAME: "BrotesDeOlivo-macOS.dmg"
+
+jobs:
+  build-package:
+    name: Build self-contained macOS test
+    runs-on: macos-15-intel
+
+    steps:
+      - name: Checkout public distribution repository
+        uses: actions/checkout@v4
+
+      - name: Install Inno Setup extractor
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew list innoextract >/dev/null 2>&1 || brew install innoextract
+          innoextract --version
+
+      - name: Download Windows package and pinned free wrapper components
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work artifacts
+          curl -fL --retry 3 -o work/BrotesDeOlivo-Setup.exe "$WINDOWS_URL"
+          curl -fL --retry 3 -o work/template.tar.xz "$TEMPLATE_URL"
+          curl -fL --retry 3 -o work/engine.tar.xz "$ENGINE_URL"
+
+          echo "$TEMPLATE_SHA256  work/template.tar.xz" | shasum -a 256 -c -
+          echo "$ENGINE_SHA256  work/engine.tar.xz" | shasum -a 256 -c -
+          shasum -a 256 work/BrotesDeOlivo-Setup.exe
+
+      - name: Assemble Sikarugir and Wine wrapper
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work/template work/engine
+          tar -xf work/template.tar.xz -C work/template
+          tar -xf work/engine.tar.xz -C work/engine
+
+          SOURCE_APP="$(find work/template -maxdepth 2 -type d -name '*.app' | head -1)"
+          test -n "$SOURCE_APP"
+          test -d work/engine/wswine.bundle
+
+          WRAPPER="$PWD/artifacts/Brotes de Olivo.app"
+          ditto "$SOURCE_APP" "$WRAPPER"
+
+          rm -rf "$WRAPPER/Contents/SharedSupport/wine"
+          mkdir -p "$WRAPPER/Contents/SharedSupport"
+          ditto work/engine/wswine.bundle "$WRAPPER/Contents/SharedSupport/wine"
+
+          # Do not ship or enable the optional closed-source D3DMetal/GPTK renderer.
+          # Brotes de Olivo uses the ordinary Wine/WineD3D path.
+          find "$WRAPPER/Contents" -depth \
+            \( -iname '*d3dmetal*' -o -iname '*winemetal*' -o -iname '*gameportingtoolkit*' \) \
+            -print -exec rm -rf {} \; || true
+
+          # Wine engine libraries are looked up from SharedSupport at runtime.
+          for lib in "$WRAPPER/Contents/Frameworks/"*.dylib; do
+            test -e "$lib" || continue
+            ln -sf "../Frameworks/$(basename "$lib")" \
+              "$WRAPPER/Contents/SharedSupport/$(basename "$lib")"
+          done
+
+          xattr -dr com.apple.quarantine "$WRAPPER" 2>/dev/null || true
+
+          WINE="$WRAPPER/Contents/SharedSupport/wine/bin/wine"
+          PREFIX="$WRAPPER/Contents/SharedSupport/prefix"
+          FRAMEWORKS="$WRAPPER/Contents/Frameworks"
+          test -x "$WINE"
+
+          wine_run () {
+            env WINEPREFIX="$PREFIX" WINEDEBUG=-all WINEESYNC=1 WINEMSYNC=1 \
+              DYLD_FALLBACK_LIBRARY_PATH="$FRAMEWORKS:/usr/lib" \
+              "$WINE" "$@"
+          }
+
+          wine_run wineboot -i
+          wine_run reg add 'HKCU\Software\Wine' /v Version /d win10 /f >/dev/null
+
+          mkdir -p work/extracted
+          innoextract -q -d work/extracted work/BrotesDeOlivo-Setup.exe
+          test -f work/extracted/app/BrotesDeOlivo.exe
+          test -f work/extracted/app/app/BrotesDeOlivo.exe
+          test -f work/extracted/app/app/data/brotes_publica.sqlite
+
+          mkdir -p "$PREFIX/drive_c/BrotesDeOlivo"
+          ditto work/extracted/app "$PREFIX/drive_c/BrotesDeOlivo"
+
+          if test ! -e "$WRAPPER/Contents/drive_c"; then
+            ln -s "SharedSupport/prefix/drive_c" "$WRAPPER/Contents/drive_c"
+          fi
+
+          PLIST="$WRAPPER/Contents/Info.plist"
+          plist_string () {
+            key="$1"
+            value="$2"
+            plutil -replace "$key" -string "$value" "$PLIST" 2>/dev/null || \
+              plutil -insert "$key" -string "$value" "$PLIST"
+          }
+
+          plist_string "Program Name and Path" "/BrotesDeOlivo/app/BrotesDeOlivo.exe"
+          plist_string "Program Flags" ""
+          plist_string "CFBundleName" "Brotes de Olivo"
+          plist_string "CFBundleDisplayName" "Brotes de Olivo"
+          plist_string "CFBundleIdentifier" "es.brotesdeolivo.music.wrapper.test"
+          plist_string "CFBundleShortVersionString" "$APP_VERSION"
+          plist_string "CFBundleVersion" "1"
+          plist_string "WINEDEBUG" "-all"
+
+          echo "Wrapper assembled:"
+          du -sh "$WRAPPER"
+          plutil -p "$PLIST" | grep -E 'Program Name|CFBundle(Name|DisplayName|Identifier|ShortVersionString)' || true
+
+      - name: Smoke test Windows WPF application inside Wine
+        shell: bash
+        run: |
+          set -euo pipefail
+          WRAPPER="$PWD/artifacts/Brotes de Olivo.app"
+          WINE="$WRAPPER/Contents/SharedSupport/wine/bin/wine"
+          WINESERVER="$WRAPPER/Contents/SharedSupport/wine/bin/wineserver"
+          PREFIX="$WRAPPER/Contents/SharedSupport/prefix"
+          FRAMEWORKS="$WRAPPER/Contents/Frameworks"
+          MARKER="$PREFIX/drive_c/brotes-smoke.txt"
+          LOG="$RUNNER_TEMP/brotes-wine-smoke.log"
+          rm -f "$MARKER" "$LOG"
+
+          set +e
+          env WINEPREFIX="$PREFIX" WINEDEBUG=-all WINEESYNC=1 WINEMSYNC=1 \
+            BROTES_SMOKE_MARKER='C:\brotes-smoke.txt' \
+            DYLD_FALLBACK_LIBRARY_PATH="$FRAMEWORKS:/usr/lib" \
+            "$WINE" 'C:\BrotesDeOlivo\app\BrotesDeOlivo.exe' >"$LOG" 2>&1 &
+          PID=$!
+          set -e
+
+          RESULT="unverified"
+          for attempt in $(seq 1 30); do
+            if test -f "$MARKER"; then
+              RESULT="passed"
+              break
+            fi
+            if ! kill -0 "$PID" 2>/dev/null; then
+              RESULT="exited"
+              break
+            fi
+            sleep 2
+          done
+
+          if test -x "$WINESERVER"; then
+            env WINEPREFIX="$PREFIX" "$WINESERVER" -k >/dev/null 2>&1 || true
+          fi
+          kill "$PID" >/dev/null 2>&1 || true
+          rm -f "$MARKER"
+
+          echo "Smoke result: $RESULT"
+          if test -s "$LOG"; then
+            echo "----- Wine smoke log -----"
+            tail -200 "$LOG"
+            echo "--------------------------"
+          fi
+
+          if test "$RESULT" = "exited"; then
+            echo "::error::Brotes de Olivo terminated before its main window was ready under Wine."
+            exit 1
+          fi
+          if test "$RESULT" = "unverified"; then
+            echo "::warning::The process stayed alive but CI could not confirm MainWindow.Loaded. The real-Mac test remains necessary."
+          fi
+
+      - name: Ad-hoc sign and create one DMG file
+        shell: bash
+        run: |
+          set -euo pipefail
+          WRAPPER="$PWD/artifacts/Brotes de Olivo.app"
+
+          xattr -dr com.apple.quarantine "$WRAPPER" 2>/dev/null || true
+          codesign --force --deep --sign - --timestamp=none "$WRAPPER"
+          codesign --verify --deep "$WRAPPER"
+
+          DMGROOT="$RUNNER_TEMP/brotes-dmg"
+          rm -rf "$DMGROOT"
+          mkdir -p "$DMGROOT"
+          ditto "$WRAPPER" "$DMGROOT/Brotes de Olivo.app"
+          ln -s /Applications "$DMGROOT/Applications"
+
+          hdiutil create \
+            -volname "Brotes de Olivo" \
+            -srcfolder "$DMGROOT" \
+            -ov -format UDZO \
+            "artifacts/$DMG_NAME"
+
+          test -s "artifacts/$DMG_NAME"
+          ls -lh "artifacts/$DMG_NAME"
+          shasum -a 256 "artifacts/$DMG_NAME"
+
+      - name: Upload test artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: BrotesDeOlivo-macOS-${{ env.APP_VERSION }}
+          path: artifacts/${{ env.DMG_NAME }}
+          if-no-files-found: error
+
+      - name: Publish stable macOS test asset
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release view macos-public >/dev/null
+          gh release upload macos-public "artifacts/$DMG_NAME" --clobber
+
+      - name: Activate macOS test download in manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          version = "0.1.16-test1"
+          filename = "BrotesDeOlivo-macOS.dmg"
+          url = "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/" + filename
+          now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+          manifest_path = Path("downloads/manifest.json")
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          manifest["updated_at"] = now
+          manifest["platforms"]["macos"].update({
+              "available": True,
+              "version": version,
+              "url": url,
+              "file": filename,
+          })
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          version_path = Path("downloads/macos/version.json")
+          version_doc = {
+              "platform": "macos",
+              "available": True,
+              "version": version,
+              "file": filename,
+              "url": url,
+              "release": "macos-public",
+              "status": "test-wrapper-wine",
+          }
+          version_path.write_text(json.dumps(version_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/manifest.json downloads/macos/version.json
+          if git diff --cached --quiet; then
+            echo "Manifest already up to date."
+          else
+            git commit -m "Publish macOS 0.1.16 test wrapper [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+  deploy-site:
+    name: Refresh download website
+    needs: build-package
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Prepare self-contained site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site/downloads
+          cp -R website/. site/
+          cp downloads/manifest.json site/downloads/manifest.json
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
