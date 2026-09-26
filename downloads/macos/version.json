@@ -1,8 +1,9 @@
 {
   "platform": "macos",
-  "available": false,
-  "version": null,
+  "available": true,
+  "version": "0.1.16-test5",
   "file": "BrotesDeOlivo-macOS.dmg",
-  "url": null,
-  "release": "macos-public"
+  "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/BrotesDeOlivo-macOS.dmg",
+  "release": "macos-public",
+  "status": "test-wrapper-wine"
 }

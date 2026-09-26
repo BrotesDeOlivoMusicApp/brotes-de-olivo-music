@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25T23:08:56Z",
+  "updated_at": "2026-09-26T05:17:20.045010Z",
   "platforms": {
     "windows": {
       "label": "Windows",
@@ -11,9 +11,9 @@
     },
     "macos": {
       "label": "macOS",
-      "available": false,
-      "version": null,
-      "url": null,
+      "available": true,
+      "version": "0.1.16-test5",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/BrotesDeOlivo-macOS.dmg",
       "file": "BrotesDeOlivo-macOS.dmg"
     },
     "android": {
