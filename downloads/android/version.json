@@ -1,8 +1,9 @@
 {
   "platform": "android",
-  "available": false,
-  "version": null,
-  "file": "BrotesDeOlivo-Android.apk",
-  "url": null,
-  "release": "android-public"
+  "available": true,
+  "version": "0.0.9",
+  "file": "BrotesDeOlivo-Android-v0.0.9.apk",
+  "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android-v0.0.9.apk",
+  "release": "android-public",
+  "sha256": "9574496c504e8231a72eb6198131de025290c0af0996d6ceaf1601d1efb40326"
 }

@@ -5,7 +5,7 @@ Esta carpeta contiene únicamente metadatos ligeros de distribución. Los binari
 Plataformas previstas:
 - Windows: Release fija `windows-public`, asset estable `BrotesDeOlivo-Setup.exe`.
 - macOS: Release fija `macos-public`, asset estable `BrotesDeOlivo-macOS.dmg`.
-- Android: Release fija `android-public`, asset estable `BrotesDeOlivo-Android.apk`.
+- Android: Release fija `android-public`, asset versionado `BrotesDeOlivo-Android-vX.Y.Z.apk`. `downloads/android/version.json` y `manifest.json` apuntan siempre a la última versión publicada.
 - iOS/iPadOS: enlace de App Store o TestFlight cuando exista.
 
 `manifest.json` es el contrato consumido por la web. Una plataforma solo se habilita cuando `available` es `true`.
