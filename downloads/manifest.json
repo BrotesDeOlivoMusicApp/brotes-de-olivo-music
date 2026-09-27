@@ -1,36 +1,36 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-09-27T11:32:41.8279383Z",
-  "platforms": {
-    "windows": {
-      "label": "Windows",
-      "available": true,
-      "version": "0.1.31",
-      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe",
-      "file": "BrotesDeOlivo-Setup.exe",
-      "sha256": "046191269373537818430558a57ded8bcc50ed4b07973637ae76a19a582b81b8"
-    },
-    "macos": {
-      "label": "macOS",
-      "available": true,
-      "version": "0.1.16-test5",
-      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/BrotesDeOlivo-macOS.dmg",
-      "file": "BrotesDeOlivo-macOS.dmg"
-    },
-    "android": {
-      "label": "Android",
-      "available": true,
-      "version": "0.0.9",
-      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android-v0.0.9.apk",
-      "file": "BrotesDeOlivo-Android-v0.0.9.apk",
-      "sha256": "8491b25002892ac5f94e1ab21be741682522fd64dfa5fd4ab84ee535dc635e96"
-    },
-    "ios": {
-      "label": "iPhone / iPad",
-      "available": false,
-      "version": null,
-      "url": null,
-      "file": null
-    }
-  }
+    "schema_version":  1,
+    "updated_at":  "2026-09-27T22:59:18.2703624Z",
+    "platforms":  {
+                      "windows":  {
+                                      "label":  "Windows",
+                                      "available":  true,
+                                      "version":  "0.1.32",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe",
+                                      "file":  "BrotesDeOlivo-Setup.exe",
+                                      "sha256":  "d5b65f4553a5802b3c21bf04b962b34bb7a133a51eaf07d84eedae3699501fb2"
+                                  },
+                      "macos":  {
+                                    "label":  "macOS",
+                                    "available":  true,
+                                    "version":  "0.1.16-test5",
+                                    "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/BrotesDeOlivo-macOS.dmg",
+                                    "file":  "BrotesDeOlivo-macOS.dmg"
+                                },
+                      "android":  {
+                                      "label":  "Android",
+                                      "available":  true,
+                                      "version":  "0.0.9",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android-v0.0.9.apk",
+                                      "file":  "BrotesDeOlivo-Android-v0.0.9.apk",
+                                      "sha256":  "8491b25002892ac5f94e1ab21be741682522fd64dfa5fd4ab84ee535dc635e96"
+                                  },
+                      "ios":  {
+                                  "label":  "iPhone / iPad",
+                                  "available":  false,
+                                  "version":  null,
+                                  "url":  null,
+                                  "file":  null
+                              }
+                  }
 }
