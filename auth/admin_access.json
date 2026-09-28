@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated_at": "2026-09-24T00:15:09.3333110\u002B00:00",
+  "updated_at": "2026-09-28T23:10:49.1324179\u002B00:00",
   "provisioned": true,
   "auth_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-music",
   "auth_branch": "main",
@@ -8,6 +8,15 @@
   "data_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-data",
   "data_branch": "main",
   "master_path": "master/brotes_maestra.sqlite",
+  "public_path": "public/brotes_publica.sqlite",
+  "public_version_path": "public/version.json",
+  "metadata_version_path": "metadata/version_v2.json",
+  "distribution_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-music",
+  "distribution_branch": "main",
+  "distribution_database_path": "data/brotes_publica.sqlite",
+  "distribution_version_path": "data/version.json",
+  "audio_catalog_path": "catalogo.json",
+  "audio_release_tag": "discografia-v1",
   "token_cipher": {
     "nonce_b64": "oSy\u002BZIThkv2TA5ST",
     "ciphertext_b64": "zHWs6HKsxnnSJTaFJxxQ7oYrOkvI7IApfoO3cBHW\u002BNzlNTwC/FT5JrAzWNLoxxG2rSRUTojUS0UhGWaUn1\u002BceZb\u002BwbXE1wO7ZInfllyc7s6wWhjvw6ullkcUWKdr",
@@ -36,6 +45,30 @@
         "nonce_b64": "ksuSA9bkXfqTaZga",
         "ciphertext_b64": "V1kc74AuWicie9M2h0rKZyxP3u258cn0yjGPjPCH1oA=",
         "tag_b64": "5RevQQgE4mqdrGwdb6zfvQ=="
+      }
+    },
+    {
+      "admin_id": "ADM31613ACF",
+      "login_sha256": "b40be2f949c9c9655d3ce3432eca2859e374988738649c9cf221eaa4aefe80ce",
+      "role": "GESTOR",
+      "active": true,
+      "must_change_password": true,
+      "password": {
+        "salt_b64": "9ZR7750ix6hXSrwL33l26A==",
+        "hash_b64": "bYcIExxqpivrTWGzNBO8jDa71sJzwB31HoAOdNVZcTk=",
+        "memory_kib": 65536,
+        "iterations": 3,
+        "parallelism": 2,
+        "hash_length": 32
+      },
+      "key_wrap": {
+        "kdf_salt_b64": "TR1TCw/nTw6baKUWAtj1Aw==",
+        "memory_kib": 65536,
+        "iterations": 3,
+        "parallelism": 2,
+        "nonce_b64": "ZCUIQV1HV/LsGCfV",
+        "ciphertext_b64": "7Rog8YTPRPiIy8iTauFDJG/OwNiC8\u002Bw/S/m8Lwc2tGo=",
+        "tag_b64": "GnFNxb83dB3Er2NF35rvLQ=="
       }
     }
   ]
