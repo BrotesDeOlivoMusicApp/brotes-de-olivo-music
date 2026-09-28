@@ -1,9 +1,9 @@
 {
     "platform":  "windows",
     "available":  true,
-    "version":  "0.1.40",
+    "version":  "0.1.41",
     "file":  "BrotesDeOlivo-Setup.exe",
     "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe",
     "release":  "windows-public",
-    "sha256":  "0260e13bf0fb8ebe5d9c1a6652e4fff51cd62b121685001bd497f2ec667d50ed"
+    "sha256":  "acefc308b4876bcc1fe03668079193f94792f335e56f0394e777978df562b1d6"
 }
