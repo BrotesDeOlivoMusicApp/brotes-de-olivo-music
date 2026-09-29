@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.29.3",
-  "schemaVersion": 9,
-  "minAppVersion": "0.1.42",
-  "minAndroidAppVersion": "0.0.11",
+  "dataVersion": "2026.09.29.4",
+  "schemaVersion": 11,
+  "minAppVersion": "0.1.45",
+  "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "48593b3e014760ce0142b7b0c22d35320c4fb428159dc6ee436d63c39e240d9d",
+  "sha256": "b404978ff1ccb65cd0923f0a0f137c0948d56249878ba0e4ff9ab9b83d1aae44",
   "date": "2026-09-29",
-  "notes": "Publicaci\u00F3n generada desde la base maestra por la aplicaci\u00F3n administrativa."
+  "notes": "Catalogo central unico"
 }
