@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.29.2",
+  "dataVersion": "2026.09.29.3",
   "schemaVersion": 9,
   "minAppVersion": "0.1.42",
   "minAndroidAppVersion": "0.0.11",
   "file": "brotes_publica.sqlite",
-  "sha256": "a6227cdab1d23084332a646eb9387e60af895c9adcfa1b8e0cae1d1c4f2eaff6",
+  "sha256": "48593b3e014760ce0142b7b0c22d35320c4fb428159dc6ee436d63c39e240d9d",
   "date": "2026-09-29",
   "notes": "Publicaci\u00F3n generada desde la base maestra por la aplicaci\u00F3n administrativa."
 }
