@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated_at": "2026-09-28T23:13:07.9271492\u002B00:00",
+  "updated_at": "2026-09-29T18:01:15.6369169\u002B00:00",
   "provisioned": true,
   "auth_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-music",
   "auth_branch": "main",
@@ -8,6 +8,8 @@
   "data_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-data",
   "data_branch": "main",
   "master_path": "master/brotes_maestra.sqlite",
+  "catalog_mode": "legacy",
+  "admin_profiles_path": "auth/admin_profiles.json",
   "public_path": "public/brotes_publica.sqlite",
   "public_version_path": "public/version.json",
   "metadata_version_path": "metadata/version_v2.json",
