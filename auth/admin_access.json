@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "updated_at": "2026-09-29T18:03:41.5341043\u002B00:00",
+  "updated_at": "2026-09-29T18:15:28.1935320\u002B00:00",
   "provisioned": true,
   "auth_repository": "BrotesDeOlivoMusicApp/brotes-de-olivo-music",
   "auth_branch": "main",
@@ -119,6 +119,30 @@
         "nonce_b64": "eiZVadCDXeQQ9XOV",
         "ciphertext_b64": "UhR3BpHpQ1zMTzbrzJ32voiBhfCM7W9ImbgqEmJ5M14=",
         "tag_b64": "cOVVPDdHbUMw3cwjiXA0pA=="
+      }
+    },
+    {
+      "admin_id": "ADM3C6452A3",
+      "login_sha256": "5c2ce2fd2172d2f7c0ed93d6bdb75b930244a220080a1ea67bdc344668cad761",
+      "role": "GESTOR",
+      "active": true,
+      "must_change_password": true,
+      "password": {
+        "salt_b64": "W2\u002BBuWGyKrYhzDmI\u002BDW7IQ==",
+        "hash_b64": "Nn6ScUo8EenxG1Ze4E9\u002BXibKjcUWy8FcUk7H35Bm2\u002B0=",
+        "memory_kib": 65536,
+        "iterations": 3,
+        "parallelism": 2,
+        "hash_length": 32
+      },
+      "key_wrap": {
+        "kdf_salt_b64": "MqEOgc9WQ99QaEOpBY647A==",
+        "memory_kib": 65536,
+        "iterations": 3,
+        "parallelism": 2,
+        "nonce_b64": "QIVgICxsDVDpyMS7",
+        "ciphertext_b64": "p3btvP68j7zNYsZoszEHBwMhiAh2AAic9e72MlvnDnc=",
+        "tag_b64": "Q8tpEo0R/Q4QwOtAMhq39w=="
       }
     }
   ]
