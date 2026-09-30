@@ -1,0 +1,36 @@
+name: Importar acordes aprobados 2026-09-30 lote 2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import_chords_20260930_batch2.py'
+      - '.github/workflows/import-chords-20260930-batch2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Aplicar acordes y validar SQLite
+        run: python3 scripts/import_chords_20260930_batch2.py
+
+      - name: Comprobar cambios esperados
+        run: |
+          git status --short
+          test -n "$(git status --short data/brotes_publica.sqlite data/version.json)"
+
+      - name: Publicar catálogo actualizado
+        run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/brotes_publica.sqlite data/version.json
+          git commit -m "[ChatGPT] Importa segundo lote de 20 acordes"
+          git push
