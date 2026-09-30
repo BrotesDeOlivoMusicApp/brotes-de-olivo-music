@@ -17,6 +17,6 @@ jobs:
       - run: |
           git config user.name "ChatGPT"
           git config user.email "actions@users.noreply.github.com"
-          git add scripts/C0205_letra.txt
-          git commit -m "[ChatGPT] Extrae letra V11 C0205"
+          git add scripts/jesus_sigue_gritando_lyrics.json
+          git commit -m "[ChatGPT] Extrae letras V11 Jesús sigue gritando"
           git push
