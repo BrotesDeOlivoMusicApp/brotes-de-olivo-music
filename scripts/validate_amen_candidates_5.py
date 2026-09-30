@@ -32,3 +32,5 @@ print("OK",len(ok),"/",len(cand))
 # Revalidación Fiesta del Cenáculo
 
 # Revalidación Celucamping
+
+# Revalidación final Celucamping
