@@ -1,0 +1,22 @@
+name: Extraer C0205
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/extract_C0205.py'
+      - '.github/workflows/extract-C0205.yml'
+permissions:
+  contents: write
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: python3 scripts/extract_C0205.py
+      - run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/C0205_letra.txt
+          git commit -m "[ChatGPT] Extrae letra V11 C0205"
+          git push
