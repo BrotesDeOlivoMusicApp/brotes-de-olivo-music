@@ -1,0 +1,16 @@
+name: Validar 31 candidatos de acordes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate_chords_31_20260930.py'
+      - '.github/workflows/validate-chords-31-20260930.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validar candidatos contra V11
+        run: python3 scripts/validate_chords_31_20260930.py
