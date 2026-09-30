@@ -1,0 +1,15 @@
+name: Validar 5 candidatos AMEN
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate_amen_candidates_5.py'
+      - '.github/workflows/validate-amen-candidates-5.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_amen_candidates_5.py
