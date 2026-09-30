@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, re, sqlite3
+import json, re, sqlite3, difflib
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -31,7 +31,12 @@ for cid,cand in sorted(candidates.items()):
     if plain != letra:
         n=min(len(plain),len(letra))
         pos=next((i for i in range(n) if plain[i]!=letra[i]),n)
-        bad.append((cid,f"texto difiere en offset {pos}; len={len(plain)}/{len(letra)}")); continue
+        sm=difflib.SequenceMatcher(a=letra,b=plain)
+        ops=[]
+        for tag,i1,i2,j1,j2 in sm.get_opcodes():
+            if tag!="equal":
+                ops.append(f"{tag} DB[{i1}:{i2}]={letra[i1:i2]!r} CAND[{j1}:{j2}]={plain[j1:j2]!r}")
+        bad.append((cid,f"texto difiere; len={len(plain)}/{len(letra)}; " + " | ".join(ops[:8]))); continue
     ok.append(cid)
 con.close()
 print("VALIDAS",len(ok)," ".join(ok))
