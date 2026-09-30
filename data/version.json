@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.30.2",
+  "dataVersion": "2026.09.30.3",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "08566904072dfecd3013d8e5c6aae2bb9c17e926c6954ad130f693bd61e73d27",
+  "sha256": "0c6ef1a63bc5bbfd2d8f3d4819442418e93176e43141168568e9dc7173d92835",
   "date": "2026-09-30",
-  "notes": "26 enlaces TIDAL verificados en discos de Brotes de Olivo"
+  "notes": "Catálogo V11 reparado; discos recuperados y enlaces TIDAL conservados; acordes en pausa"
 }
