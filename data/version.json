@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.30.3",
+  "dataVersion": "2026.09.30.4",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "0c6ef1a63bc5bbfd2d8f3d4819442418e93176e43141168568e9dc7173d92835",
+  "sha256": "35899d6e124d6a3be0fe927a2cd014c6aa69bd2d195a65b2f804ed8642377345",
   "date": "2026-09-30",
-  "notes": "Catálogo V11 reparado; discos recuperados y enlaces TIDAL conservados; acordes en pausa"
+  "notes": "Primer lote de acordes: C0001, C0002, C0006, C0009 y C0010. Añade la columna opcional cancion.acordes."
 }
