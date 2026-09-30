@@ -26,3 +26,5 @@ if bad:
     for x in bad: print(*x)
     raise SystemExit(1)
 print("OK",len(ok),"/",len(cand))
+
+# Revalidación tras añadir C0189 y C0193
