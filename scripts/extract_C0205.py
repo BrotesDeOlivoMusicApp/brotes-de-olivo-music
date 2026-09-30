@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-import sqlite3
+import json,sqlite3
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]
+ids=["C0189","C0193"]
 con=sqlite3.connect(R/"data"/"brotes_publica.sqlite")
-r=con.execute("select letra from cancion where cancion_id='C0205'").fetchone()
+out={}
+for cid in ids:
+    r=con.execute("select titulo,letra from cancion where cancion_id=?",(cid,)).fetchone()
+    if not r: raise SystemExit(cid)
+    out[cid]={"titulo":r[0],"letra":r[1] or ""}
 con.close()
-if not r: raise SystemExit("C0205 no existe")
-(R/"scripts"/"C0205_letra.txt").write_text(r[0] or "",encoding="utf-8")
+(R/"scripts"/"jesus_sigue_gritando_lyrics.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
