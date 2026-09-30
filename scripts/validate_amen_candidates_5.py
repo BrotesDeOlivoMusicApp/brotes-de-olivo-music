@@ -28,3 +28,5 @@ if bad:
 print("OK",len(ok),"/",len(cand))
 
 # Revalidación tras añadir C0189 y C0193
+
+# Revalidación Fiesta del Cenáculo
