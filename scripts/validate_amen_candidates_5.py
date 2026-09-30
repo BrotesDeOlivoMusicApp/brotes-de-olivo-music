@@ -34,3 +34,5 @@ print("OK",len(ok),"/",len(cand))
 # Revalidación Celucamping
 
 # Revalidación final Celucamping
+
+# Revalidación final C0023
