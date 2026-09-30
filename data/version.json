@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.30.4",
+  "dataVersion": "2026.09.30.5",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "35899d6e124d6a3be0fe927a2cd014c6aa69bd2d195a65b2f804ed8642377345",
+  "sha256": "64a7b334f06820c4a5c0149c4b3c5c7c2e6cb866c818493a4b4e892db15abd5c",
   "date": "2026-09-30",
-  "notes": "Primer lote de acordes: C0001, C0002, C0006, C0009 y C0010. Añade la columna opcional cancion.acordes."
+  "notes": "Segundo lote de acordes: 20 canciones aprobadas (C0011, C0014, C0015, C0130, C0131, C0133, C0135-C0144, C0160, C0162-C0164). Total: 25 canciones con acordes."
 }
