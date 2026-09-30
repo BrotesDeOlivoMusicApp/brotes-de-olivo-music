@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Revalidación tras ajustes mínimos a V11
+# Revalidación final tras ajuste de C0295
 import json, re, sqlite3, difflib
 from pathlib import Path
 
