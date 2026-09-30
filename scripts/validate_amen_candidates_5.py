@@ -25,4 +25,4 @@ if bad:
     print("FALLOS",len(bad))
     for x in bad: print(*x)
     raise SystemExit(1)
-print("OK 5/5")
+print("OK",len(ok),"/",len(cand))
