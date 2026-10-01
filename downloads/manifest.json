@@ -1,14 +1,14 @@
 {
     "schema_version":  1,
-    "updated_at":  "2026-10-01T12:05:31.6237301Z",
+    "updated_at":  "2026-10-01T13:53:46.7982009Z",
     "platforms":  {
                       "windows":  {
                                       "label":  "Windows",
                                       "available":  true,
-                                      "version":  "0.1.60",
+                                      "version":  "0.1.61",
                                       "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup.exe",
                                       "file":  "BrotesDeOlivo-Setup.exe",
-                                      "sha256":  "dab91808581226297ee2cc3606e59d8d27c42a90751fdbacef1a01b063a987e1"
+                                      "sha256":  "96ead7402a505d31eb4f35ef4ef94d0c8e4beea2ad05023f311b7b18c457163c"
                                   },
                       "macos":  {
                                     "label":  "macOS",
