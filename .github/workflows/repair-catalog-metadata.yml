@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths:
+      - 'data/brotes_publica.sqlite'
+      - 'data/version.json'
       - 'scripts/repair_catalog_metadata.py'
       - '.github/workflows/repair-catalog-metadata.yml'
 permissions:
