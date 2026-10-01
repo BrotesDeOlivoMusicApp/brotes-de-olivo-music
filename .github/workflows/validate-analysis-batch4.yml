@@ -1,0 +1,14 @@
+name: Validar bloque análisis 4
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/analysis_batch4_candidates.json'
+      - 'scripts/validate_analysis_batch4.py'
+      - '.github/workflows/validate-analysis-batch4.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_analysis_batch4.py
