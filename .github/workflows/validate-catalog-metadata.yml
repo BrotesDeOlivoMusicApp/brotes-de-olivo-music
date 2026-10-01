@@ -1,0 +1,17 @@
+name: Validar coherencia del catalogo
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/brotes_publica.sqlite'
+      - 'data/version.json'
+      - 'scripts/validate_catalog_metadata.py'
+      - '.github/workflows/validate-catalog-metadata.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_catalog_metadata.py
