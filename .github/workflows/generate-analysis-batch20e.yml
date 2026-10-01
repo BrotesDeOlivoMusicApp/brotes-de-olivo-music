@@ -1,0 +1,22 @@
+name: Generar candidatos bloque análisis 20E
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate_analysis_batch20e.py'
+      - 'scripts/analysis_batch20e_lyrics.json'
+      - '.github/workflows/generate-analysis-batch20e.yml'
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/generate_analysis_batch20e.py
+      - run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/analysis_batch20e_candidates.json
+          git commit -m "[ChatGPT] Genera candidatos bloque análisis 20E" || exit 0
+          git push
