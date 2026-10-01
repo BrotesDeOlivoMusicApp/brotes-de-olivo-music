@@ -1,0 +1,14 @@
+name: Validar bloque análisis 20E
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/analysis_batch20e_candidates.json'
+      - 'scripts/validate_analysis_batch20e.py'
+      - '.github/workflows/validate-analysis-batch20e.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_analysis_batch20e.py
