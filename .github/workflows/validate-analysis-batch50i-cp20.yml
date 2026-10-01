@@ -1,0 +1,14 @@
+name: Validar checkpoint 20 bloque 50I
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/analysis_batch50i_cp20_candidates.json'
+      - 'scripts/validate_analysis_batch50i_cp20.py'
+      - '.github/workflows/validate-analysis-batch50i-cp20.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_analysis_batch50i_cp20.py
