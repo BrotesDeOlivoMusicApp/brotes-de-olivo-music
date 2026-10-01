@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.09.30.6",
+  "dataVersion": "2026.10.01.1",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "2307fdca6e28ea91c0cf4e24c196de0e138b9e73cb47d5d263f2b2f6644e9442",
-  "date": "2026-09-30",
-  "notes": "Tercer lote de acordes: 31 canciones aprobadas. Total acumulado: 56 canciones con acordes."
+  "sha256": "fc5473e949d3f850591a3fafd989832674d00b02f2aed252a71753e785aed8de",
+  "date": "2026-10-01",
+  "notes": "Cuarto lote de acordes: 27 canciones preparadas importadas. Total acumulado: 83 canciones con acordes."
 }
