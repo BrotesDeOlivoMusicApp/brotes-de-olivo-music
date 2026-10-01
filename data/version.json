@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.10.01.5",
+  "dataVersion": "2026.10.01.6",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "001ab28e83248f99d6fb408d38afc85dd765ab711ad964453ee20145ad615bb6",
+  "sha256": "c825d735a6992fbede39160e6e5c97806b0211001314b8131c4c0c7a35eeeb70",
   "date": "2026-10-01",
-  "notes": "Octavo lote de acordes: 30 canciones preparadas importadas. Total acumulado: 191 canciones con acordes."
+  "notes": "Noveno lote de acordes: 14 canciones preparadas importadas. Total acumulado: 205 canciones con acordes."
 }
