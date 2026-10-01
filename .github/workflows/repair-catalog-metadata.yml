@@ -15,13 +15,28 @@ jobs:
         with:
           fetch-depth: 0
       - run: python3 scripts/repair_catalog_metadata.py
-      - run: |
+      - shell: bash
+        run: |
+          set -e
           git config user.name "ChatGPT"
           git config user.email "actions@users.noreply.github.com"
           git add data/brotes_publica.sqlite data/version.json
+
           if git diff --cached --quiet; then
             echo "Catalog metadata already synchronized."
-          else
-            git commit -m "[ChatGPT] Repara data_version interno del catalogo"
-            git push
+            exit 0
           fi
+
+          git commit -m "[ChatGPT] Repara data_version interno del catalogo"
+
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push concurrente fallido, reintentando ($attempt/6)..."
+            sleep 2
+          done
+
+          echo "No se pudo publicar la reparación tras 6 intentos."
+          exit 1
