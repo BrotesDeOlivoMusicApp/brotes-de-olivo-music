@@ -1,0 +1,22 @@
+name: Generar candidatos checkpoint 10 bloque 50I
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate_analysis_batch50i_cp10.py'
+      - 'scripts/analysis_batch50i_cp10_lyrics.json'
+      - '.github/workflows/generate-analysis-batch50i-cp10.yml'
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/generate_analysis_batch50i_cp10.py
+      - run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/analysis_batch50i_cp10_candidates.json
+          git commit -m "[ChatGPT] Genera candidatos checkpoint 10 bloque 50I" || exit 0
+          git push
