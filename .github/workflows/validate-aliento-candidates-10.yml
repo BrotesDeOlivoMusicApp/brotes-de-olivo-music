@@ -1,0 +1,14 @@
+name: Validar 10 candidatos El aliento
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/aliento_candidates_10.json'
+      - 'scripts/validate_aliento_candidates_10.py'
+      - '.github/workflows/validate-aliento-candidates-10.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_aliento_candidates_10.py
