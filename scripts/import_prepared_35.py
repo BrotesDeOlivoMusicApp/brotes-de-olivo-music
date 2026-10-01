@@ -23,11 +23,17 @@ try:
     if fk: raise SystemExit(f"foreign_key_check {fk[:10]}")
     after=con.execute("select count(*) from cancion where trim(coalesce(acordes,''))<>''").fetchone()[0]
     if after!=161: raise SystemExit(f"Esperaba 161 y hay {after}")
+    info=json.loads(VER.read_text(encoding="utf-8"))
+    if info.get("dataVersion")!="2026.10.01.3": raise SystemExit(f"Versión inesperada {info.get('dataVersion')}")
+    next_version="2026.10.01.4"
+    con.execute("update app_metadata set valor=? where clave='data_version'",(next_version,))
+    con.commit()
+    stored=con.execute("select valor from app_metadata where clave='data_version'").fetchone()
+    if not stored or stored[0]!=next_version:
+        raise SystemExit(f"data_version interno no actualizado: {stored}")
 finally: con.close()
-info=json.loads(VER.read_text(encoding="utf-8"))
-if info.get("dataVersion")!="2026.10.01.3": raise SystemExit(f"Versión inesperada {info.get('dataVersion')}")
-sha=hashlib.sha256(DB.read_bytes()).hexdigest()
 info["dataVersion"]="2026.10.01.4"
+sha=hashlib.sha256(DB.read_bytes()).hexdigest()
 info["sha256"]=sha
 info["date"]="2026-10-01"
 info["notes"]="Séptimo lote de acordes: 35 canciones preparadas importadas. Total acumulado: 161 canciones con acordes."
