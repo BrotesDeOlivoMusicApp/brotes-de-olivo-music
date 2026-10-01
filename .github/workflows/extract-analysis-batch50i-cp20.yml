@@ -1,0 +1,21 @@
+name: Extraer letras checkpoint 20 bloque 50I
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/extract_analysis_batch50i_cp20.py'
+      - '.github/workflows/extract-analysis-batch50i-cp20.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/extract_analysis_batch50i_cp20.py
+      - run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/analysis_batch50i_cp20_lyrics.json
+          git commit -m "[ChatGPT] Extrae letras checkpoint 20 bloque 50I" || exit 0
+          git push
