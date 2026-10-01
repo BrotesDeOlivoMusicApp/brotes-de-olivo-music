@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Reusable repair for catalogue metadata.
 import hashlib
 import json
 import sqlite3
