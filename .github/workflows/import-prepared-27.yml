@@ -1,0 +1,23 @@
+name: Importar 27 acordes preparados
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import_prepared_27.py'
+      - '.github/workflows/import-prepared-27.yml'
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/import_prepared_27.py
+      - run: |
+          git config user.name "ChatGPT"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/brotes_publica.sqlite data/version.json
+          git commit -m "[ChatGPT] Importa 27 acordes preparados"
+          git push
