@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.10.01.8",
+  "dataVersion": "2026.10.01.9",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "b6ae9e69dceac457a3990cab3ff31d2a13d04bd6a7991dc92639d4938e062694",
+  "sha256": "518e1de8416b14bbdc68381534e30b07bb1898231c29acf8e52ff5c62ab87808",
   "date": "2026-10-01",
-  "notes": "Undécimo lote de acordes: 7 canciones preparadas importadas. Total acumulado: 222 canciones con acordes."
+  "notes": "Catalogo central unico"
 }
