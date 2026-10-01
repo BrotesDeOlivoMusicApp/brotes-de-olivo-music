@@ -1,0 +1,15 @@
+name: Validar 4 casos revisados
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate_review_candidates_4.py'
+      - '.github/workflows/validate-review-candidates-4.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/validate_review_candidates_4.py
