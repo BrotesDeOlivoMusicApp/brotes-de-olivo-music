@@ -29,3 +29,5 @@ if bad:
     for x in bad: print(*x)
     raise SystemExit(1)
 print("OK 4/4")
+
+# Revalidación final tras ajuste C0003
