@@ -1,0 +1,15 @@
+# Los binarios se publican en Releases, nunca en Git.
+*.exe
+*.apk
+*.aab
+*.dmg
+*.zip
+*.mp3
+*.wav
+auth/
+admin/
+scripts/
+*mapping.txt
+.env*
+*.pem
+*.key

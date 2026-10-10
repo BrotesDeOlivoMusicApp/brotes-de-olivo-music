@@ -1,0 +1,36 @@
+{
+    "schema_version":  1,
+    "updated_at":  "2026-10-10T10:32:24.8897292Z",
+    "platforms":  {
+                      "windows":  {
+                                      "label":  "Windows",
+                                      "available":  true,
+                                      "version":  "0.1.107",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup-v0.1.107.exe",
+                                      "file":  "BrotesDeOlivo-Setup-v0.1.107.exe",
+                                      "sha256":  "02b1503e01d48fbc1bf1a83e90ec19236bda32a82c7cae546fb60b177876c4a0"
+                                  },
+                      "macos":  {
+                                    "label":  "macOS",
+                                    "available":  true,
+                                    "version":  "0.1.16-test5",
+                                    "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/BrotesDeOlivo-macOS.dmg",
+                                    "file":  "BrotesDeOlivo-macOS.dmg"
+                                },
+                      "android":  {
+                                      "label":  "Android",
+                                      "available":  true,
+                                      "version":  "0.0.42",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/android-public/BrotesDeOlivo-Android-v0.0.42.apk",
+                                      "file":  "BrotesDeOlivo-Android-v0.0.42.apk",
+                                      "sha256":  "15c2e6a65747c90598260e4fe9da3cc39d735ba7f737525181e32366c7751ab3"
+                                  },
+                      "ios":  {
+                                  "label":  "iPhone / iPad",
+                                  "available":  false,
+                                  "version":  null,
+                                  "url":  null,
+                                  "file":  null
+                              }
+                  }
+}

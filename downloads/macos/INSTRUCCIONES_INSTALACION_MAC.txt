@@ -1,0 +1,94 @@
+BROTES DE OLIVO MUSIC
+INSTRUCCIONES DE INSTALACIÓN EN macOS
+
+Versión de prueba para Mac
+========================================
+
+IMPORTANTE
+----------
+Esta versión de Brotes de Olivo Music se distribuye actualmente sin firma
+Developer ID ni certificación de Apple. Por ese motivo, macOS puede bloquear
+la aplicación la primera vez que se intenta abrir.
+
+Descarga siempre la aplicación desde la página oficial de Brotes de Olivo Music.
+
+
+1. DESCARGAR LA APLICACIÓN
+--------------------------
+1. En la página de descargas de Brotes de Olivo Music, pulsa "Descargar" en macOS.
+2. Se descargará el archivo:
+
+   BrotesDeOlivo-macOS.dmg
+
+3. Cuando termine la descarga, abre el archivo DMG con doble clic.
+
+
+2. INSTALAR BROTES DE OLIVO MUSIC
+---------------------------------
+1. Dentro de la ventana del DMG aparecerá "Brotes de Olivo".
+2. Arrastra "Brotes de Olivo" a la carpeta "Aplicaciones".
+3. Espera a que termine la copia.
+4. Cierra la ventana del DMG.
+5. Si quieres, expulsa el volumen "Brotes de Olivo" desde Finder.
+6. Abre Finder > Aplicaciones.
+7. Haz doble clic en "Brotes de Olivo".
+
+
+3. SI macOS BLOQUEA LA APLICACIÓN
+---------------------------------
+Es normal que, en el primer arranque, macOS muestre un aviso indicando que
+Apple no puede comprobar la aplicación o que procede de un desarrollador
+no identificado.
+
+Haz lo siguiente:
+
+1. Intenta abrir "Brotes de Olivo" una vez desde la carpeta Aplicaciones.
+2. Cierra el aviso de seguridad.
+3. Abre "Ajustes del Sistema".
+4. Entra en "Privacidad y seguridad".
+5. Desplázate hacia abajo hasta la sección "Seguridad".
+6. Debe aparecer un mensaje indicando que se ha bloqueado "Brotes de Olivo".
+7. Pulsa "Abrir igualmente".
+8. macOS volverá a pedir confirmación.
+9. Pulsa "Abrir".
+10. Si macOS solicita la contraseña, Touch ID o credenciales del usuario,
+    autoriza la operación.
+
+Después de hacerlo una vez, macOS guardará la aplicación como excepción y
+normalmente podrá abrirse en adelante con doble clic.
+
+
+4. SI EL MAC PIDE INSTALAR ROSETTA
+----------------------------------
+En los Mac con chip Apple (M1, M2, M3, M4, etc.), macOS puede solicitar la
+instalación de Rosetta para ejecutar algunos componentes de la aplicación.
+
+Si aparece ese aviso:
+
+1. Comprueba que el Mac está conectado a Internet.
+2. Pulsa "Instalar".
+3. Introduce la contraseña del usuario de macOS si se solicita.
+4. Cuando termine, vuelve a abrir Brotes de Olivo Music.
+
+Rosetta funciona automáticamente en segundo plano y no hay que abrirla ni
+configurarla posteriormente.
+
+
+5. PRIMERA PRUEBA RECOMENDADA
+-----------------------------
+Una vez abierta la aplicación, comprueba al menos:
+
+- Pantalla principal.
+- Discos y portadas.
+- Canciones.
+- Reproducción de audio.
+- Acceso a los datos.
+- Descarga o acceso a audios, si corresponde.
+- Inicio de sesión de administrador, si tienes autorización.
+
+Si aparece cualquier error, anota exactamente el mensaje y, si es posible,
+haz una captura de pantalla para poder revisarlo.
+
+
+Brotes de Olivo Music
+Versión macOS de prueba
