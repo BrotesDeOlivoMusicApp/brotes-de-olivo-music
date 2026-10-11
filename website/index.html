@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Descarga Brotes de Olivo Music para Windows y consulta cómo instalar Windows en Mac con VMware.">
+  <title>Brotes de Olivo Music · Descargas</title>
+  <style>
+    :root{--olive:#66734b;--olive-dark:#4a5735;--cream:#f2efe8;--ink:#22251f;--muted:#65685f;--card:#ffffffeb}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+    .page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;position:relative;isolation:isolate;overflow:hidden}
+    .page:before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/branding/fundadores_coche_hero.jpg") center/cover no-repeat fixed}
+    .page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(242,239,232,.97),rgba(242,239,232,.82))}
+    header,main,footer{width:min(1160px,calc(100% - 36px));margin:auto} header{padding:26px 0 8px}.logo{width:min(315px,75vw);height:auto}
+    main{padding:34px 0 54px}.hero{max-width:760px}.eyebrow{margin:0 0 10px;color:var(--olive-dark);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(2rem,5vw,3.5rem);line-height:1.03;letter-spacing:-.035em}.intro{max-width:690px;color:var(--muted);font-size:1.08rem;line-height:1.6;margin:18px 0 26px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:900px}.card{display:flex;gap:15px;align-items:center;padding:18px;border:1px solid rgba(255,255,255,.82);border-radius:17px;background:var(--card);box-shadow:0 12px 34px rgba(44,49,35,.13);backdrop-filter:blur(8px)}
+    .icon{display:grid;place-items:center;width:50px;height:50px;flex:0 0 50px;border-radius:12px;background:#e8e4da;color:var(--olive-dark);font-size:1.45rem;font-weight:800}.copy{min-width:0;flex:1}.copy strong,.copy span{display:block}.copy span{margin-top:4px;color:var(--muted);font-size:.88rem}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:9px;background:var(--olive);color:#fff;text-decoration:none;font-weight:750;white-space:nowrap}.button:hover{background:var(--olive-dark)}.install-help{display:inline-block;margin-top:7px;color:var(--olive-dark);font-size:.82rem;font-weight:750;text-decoration:underline;text-underline-offset:2px}.install-help:hover{color:var(--ink)}
+    .card.unavailable{opacity:.58;filter:saturate(.55)}.card.unavailable .button{pointer-events:none;background:#8b8d86;color:#eee;cursor:not-allowed}.status{font-size:.78rem!important;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .card[data-platform="macos"] .button{white-space:normal;text-align:center;max-width:180px}
+    .note{max-width:900px;margin:18px 0 0;color:var(--muted);font-size:.86rem;line-height:1.5}.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:900px;margin:22px 0 0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.8)}.contact strong{margin-right:4px}.contact a{color:var(--olive-dark);font-weight:700;text-decoration:none}.contact a:hover{text-decoration:underline}.sep{color:#9a9d95}footer{padding:0 0 24px;color:#4c5045;font-size:.82rem}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.card{align-items:flex-start;flex-wrap:wrap}.button{width:100%}main{padding-top:22px}}
+  </style>
+</head>
+<body>
+<div class="page" id="siteContent">
+  <header><img class="logo" src="assets/branding/logo_header_web.webp" alt="Brotes de Olivo Music"></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Aplicaciones oficiales</p>
+      <h1>Tu música, siempre cerca.</h1>
+      <p class="intro">Descarga Brotes de Olivo Music para Windows. Para utilizarla en un Mac, consulta el manual de instalación de Windows con VMware.</p>
+    </section>
+    <section class="grid" id="platforms" aria-label="Plataformas">
+      <article class="card unavailable" data-platform="windows"><div class="icon">⊞</div><div class="copy"><strong>Windows</strong><span class="status">Comprobando disponibilidad…</span><span>Escritorio Windows</span></div><a class="button" aria-disabled="true">Próximamente</a></article>
+      <article class="card" data-platform="macos"><div class="icon"></div><div class="copy"><strong>Windows en Mac</strong><span class="status">Guía de instalación</span><span>Instala Windows con VMware y utiliza la aplicación para Windows.</span></div><a class="button" href="https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/Manual_instalacion_Brotes_en_Mac_VMware.docx">Descargar instrucciones</a></article>
+    </section>
+    <p class="note">La descarga de Windows apunta a la última versión publicada. El documento para Mac explica cómo instalar Windows con VMware y después utilizar Brotes de Olivo.</p>
+    <div class="contact" aria-label="Contacto y redes">
+      <strong>Brotes de Olivo</strong>
+      <a href="https://www.instagram.com/brotesdeolivo/" target="_blank" rel="noopener noreferrer">Instagram @brotesdeolivo</a>
+      <span class="sep">·</span>
+      <a href="mailto:viniloencamino@brotesdeolivo.es">Pedidos de discos: viniloencamino@brotesdeolivo.es</a>
+    </div>
+  </main>
+  <footer>© Brotes de Olivo Music</footer>
+</div>
+<script>
+const manifestUrl="downloads/manifest.json";
+fetch(manifestUrl,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("manifest");return r.json()}).then(data=>{
+  for(const [key,p] of Object.entries(data.platforms||{})){
+    const card=document.querySelector('[data-platform="'+key+'"]'); if(!card)continue;
+    const status=card.querySelector(".status"),button=card.querySelector(".button");
+    if(p.available&&p.url){
+      card.classList.remove("unavailable"); const instructions=p.distribution==="instructions";
+      status.textContent=instructions?"Guía de instalación":(p.version?"Disponible · v"+p.version:"Disponible");
+      button.textContent=instructions?"Descargar instrucciones":"Descargar"; button.href=p.url; button.removeAttribute("aria-disabled");
+    }else{status.textContent="Próximamente";button.textContent="Próximamente";button.removeAttribute("href");button.setAttribute("aria-disabled","true")}
+  }
+}).catch(()=>{document.querySelectorAll(".status").forEach((e,i)=>{if(i===0)e.textContent="Próximamente"})});
+</script>
+</body>
+</html>
