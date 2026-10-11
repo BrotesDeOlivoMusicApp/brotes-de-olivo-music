@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.10.11.3",
+  "dataVersion": "2026.10.11.5",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "0811ddfea66c007a7465f472aa7f2a0be47ff442f2ad9706135a25c5f5d35986",
+  "sha256": "a262d828f51859302befa483068082f9cc2d13745bcdc6ce0505d39357ab6cea",
   "date": "2026-10-11",
   "notes": "Catalogo central unico"
 }
