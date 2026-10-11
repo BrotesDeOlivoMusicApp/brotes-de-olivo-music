@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '27 3 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/github-statistics.yml'
+      - '.github/scripts/collect-github-statistics.py'
 
 # Unica tarea automatica: consulta metadatos y registra JSON en rama aislada.
 # No compila, publica, despliega, sincroniza ni modifica bases de datos.
