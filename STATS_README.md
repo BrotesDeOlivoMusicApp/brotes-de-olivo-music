@@ -33,3 +33,16 @@ permanecen en el histórico.
 La actualización diaria no ejecuta compilaciones ni despliegues. Se puede
 ejecutar manualmente desde Actions > Registrar estadisticas GitHub > Run workflow.
 No se deben borrar los snapshots aunque se limpien runs de Actions.
+
+## Android y Google Play (12/10/2026)
+
+La distribución oficial de Android se realiza mediante **Google Play**.
+Las estadísticas de descargas de APK/AAB y de las Releases `android-*`
+no se capturan a partir de este cambio: pertenecen a Play Console.
+El capturador filtra esas Releases y también los archivos `.apk` y `.aab`
+en cualquier otra Release. **No se elimina ningún instalador del repositorio.**
+
+Las capturas de instalación y la línea base anteriores a esta regla
+pueden contener contadores históricos de APK/AAB; son datos técnicos y
+se excluyen de los informes oficiales. El reinicio oficial de todos
+los indicadores a partir del 13/10/2026 se gestionará de forma separada.
