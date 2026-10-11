@@ -9,6 +9,7 @@ on:
 # No compila, publica, despliega, sincroniza ni modifica bases de datos.
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: github-statistics-history
