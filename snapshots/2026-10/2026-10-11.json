@@ -1,5 +1,5 @@
 {
-  "collected_at_utc": "2026-10-11T22:24:59+00:00",
+  "collected_at_utc": "2026-10-11T22:36:48+00:00",
   "date_utc": "2026-10-11",
   "errors": [],
   "limitations": {
@@ -9,170 +9,18 @@
     "release_downloads": "cumulative_by_asset_id"
   },
   "release_assets": {
-    "asset_count": 428,
+    "asset_count": 409,
+    "excluded": {
+      "asset_extensions": [
+        ".apk",
+        ".aab"
+      ],
+      "reason": "Android distribution statistics belong to Google Play Console",
+      "release_tag_prefixes": [
+        "android-"
+      ]
+    },
     "items": [
-      {
-        "assets": [
-          {
-            "created_at": "2026-10-11T16:49:40Z",
-            "downloads_total": 0,
-            "id": 631268559,
-            "name": "BrotesDeOlivo-Android-v0.0.67-mapping.txt",
-            "size_bytes": 28349645,
-            "updated_at": "2026-10-11T16:49:44Z"
-          },
-          {
-            "created_at": "2026-10-11T16:49:40Z",
-            "downloads_total": 0,
-            "id": 631268571,
-            "name": "BrotesDeOlivo-Android-v0.0.67-Play.aab",
-            "size_bytes": 12584340,
-            "updated_at": "2026-10-11T16:49:42Z"
-          },
-          {
-            "created_at": "2026-10-11T16:49:40Z",
-            "downloads_total": 0,
-            "id": 631268550,
-            "name": "BrotesDeOlivo-Android-v0.0.67-Play.json",
-            "size_bytes": 328,
-            "updated_at": "2026-10-11T16:49:40Z"
-          },
-          {
-            "created_at": "2026-10-11T16:49:40Z",
-            "downloads_total": 0,
-            "id": 631268549,
-            "name": "BrotesDeOlivo-Android-v0.0.67-validation.json",
-            "size_bytes": 742,
-            "updated_at": "2026-10-11T16:49:40Z"
-          },
-          {
-            "created_at": "2026-10-11T17:02:20Z",
-            "downloads_total": 0,
-            "id": 631295610,
-            "name": "BrotesDeOlivo-Android-v0.0.68-mapping.txt",
-            "size_bytes": 28351902,
-            "updated_at": "2026-10-11T17:02:23Z"
-          },
-          {
-            "created_at": "2026-10-11T17:02:20Z",
-            "downloads_total": 0,
-            "id": 631295608,
-            "name": "BrotesDeOlivo-Android-v0.0.68-Play.aab",
-            "size_bytes": 12585771,
-            "updated_at": "2026-10-11T17:02:22Z"
-          },
-          {
-            "created_at": "2026-10-11T17:02:20Z",
-            "downloads_total": 0,
-            "id": 631295609,
-            "name": "BrotesDeOlivo-Android-v0.0.68-Play.json",
-            "size_bytes": 328,
-            "updated_at": "2026-10-11T17:02:20Z"
-          },
-          {
-            "created_at": "2026-10-11T19:42:18Z",
-            "downloads_total": 0,
-            "id": 631636846,
-            "name": "BrotesDeOlivo-Android-v0.0.70-mapping.txt",
-            "size_bytes": 28410465,
-            "updated_at": "2026-10-11T19:42:19Z"
-          },
-          {
-            "created_at": "2026-10-11T19:42:18Z",
-            "downloads_total": 0,
-            "id": 631636849,
-            "name": "BrotesDeOlivo-Android-v0.0.70-Play.aab",
-            "size_bytes": 12601301,
-            "updated_at": "2026-10-11T19:42:19Z"
-          },
-          {
-            "created_at": "2026-10-11T19:42:18Z",
-            "downloads_total": 0,
-            "id": 631636847,
-            "name": "BrotesDeOlivo-Android-v0.0.70-Play.json",
-            "size_bytes": 277,
-            "updated_at": "2026-10-11T19:42:18Z"
-          }
-        ],
-        "draft": false,
-        "id": 409789355,
-        "prerelease": true,
-        "published_at": "2026-10-11T16:39:15Z",
-        "tag": "android-play"
-      },
-      {
-        "assets": [
-          {
-            "created_at": "2026-10-11T17:02:18Z",
-            "downloads_total": 1,
-            "id": 631295550,
-            "name": "BrotesDeOlivo-Android-v0.0.68.apk",
-            "size_bytes": 10712074,
-            "updated_at": "2026-10-11T17:02:19Z"
-          },
-          {
-            "created_at": "2026-10-11T17:02:18Z",
-            "downloads_total": 0,
-            "id": 631295549,
-            "name": "BrotesDeOlivo-Android-v0.0.68.json",
-            "size_bytes": 489,
-            "updated_at": "2026-10-11T17:02:18Z"
-          },
-          {
-            "created_at": "2026-10-11T18:52:55Z",
-            "downloads_total": 1,
-            "id": 631532686,
-            "name": "BrotesDeOlivo-Android-v0.0.69.apk",
-            "size_bytes": 19916794,
-            "updated_at": "2026-10-11T18:52:55Z"
-          },
-          {
-            "created_at": "2026-10-11T18:52:55Z",
-            "downloads_total": 0,
-            "id": 631532680,
-            "name": "BrotesDeOlivo-Android-v0.0.69.json",
-            "size_bytes": 398,
-            "updated_at": "2026-10-11T18:52:55Z"
-          },
-          {
-            "created_at": "2026-10-11T19:42:20Z",
-            "downloads_total": 1,
-            "id": 631636901,
-            "name": "BrotesDeOlivo-Android-v0.0.70-Play.aab",
-            "size_bytes": 12601301,
-            "updated_at": "2026-10-11T19:42:21Z"
-          },
-          {
-            "created_at": "2026-10-11T19:42:20Z",
-            "downloads_total": 0,
-            "id": 631636898,
-            "name": "BrotesDeOlivo-Android-v0.0.70-Play.json",
-            "size_bytes": 277,
-            "updated_at": "2026-10-11T19:42:20Z"
-          },
-          {
-            "created_at": "2026-10-11T19:15:39Z",
-            "downloads_total": 2,
-            "id": 631582424,
-            "name": "BrotesDeOlivo-Android-v0.0.70.apk",
-            "size_bytes": 19928665,
-            "updated_at": "2026-10-11T19:15:40Z"
-          },
-          {
-            "created_at": "2026-10-11T19:15:39Z",
-            "downloads_total": 0,
-            "id": 631582426,
-            "name": "BrotesDeOlivo-Android-v0.0.70.json",
-            "size_bytes": 398,
-            "updated_at": "2026-10-11T19:15:39Z"
-          }
-        ],
-        "draft": false,
-        "id": 409788758,
-        "prerelease": true,
-        "published_at": "2026-10-11T16:38:04Z",
-        "tag": "android-candidate"
-      },
       {
         "assets": [
           {
@@ -3471,23 +3319,6 @@
         "prerelease": false,
         "published_at": "2026-10-10T11:30:06Z",
         "tag": "discografia-v1"
-      },
-      {
-        "assets": [
-          {
-            "created_at": "2026-10-10T11:30:10Z",
-            "downloads_total": 4,
-            "id": 627798689,
-            "name": "BrotesDeOlivo-Android-v0.0.42.apk",
-            "size_bytes": 6120513,
-            "updated_at": "2026-10-10T11:30:12Z"
-          }
-        ],
-        "draft": false,
-        "id": 408902833,
-        "prerelease": false,
-        "published_at": "2026-10-10T11:30:04Z",
-        "tag": "android-public"
       }
     ],
     "status": "ok"
@@ -3503,11 +3334,11 @@
       "id": 1413110519,
       "open_issues_count": 0,
       "private": false,
-      "pushed_at": "2026-10-11T22:24:51Z",
+      "pushed_at": "2026-10-11T22:36:40Z",
       "size": 66981,
       "stargazers_count": 0,
       "subscribers_count": 0,
-      "updated_at": "2026-10-11T22:24:54Z",
+      "updated_at": "2026-10-11T22:36:44Z",
       "visibility": "public",
       "watchers_count": 0
     },
@@ -3551,14 +3382,25 @@
     "recent_runs": [
       {
         "conclusion": null,
+        "created_at": "2026-10-11T22:36:42Z",
+        "event": "push",
+        "id": 38181107556,
+        "name": "Registrar estadisticas GitHub",
+        "run_attempt": 1,
+        "run_started_at": "2026-10-11T22:36:42Z",
+        "status": "in_progress",
+        "updated_at": "2026-10-11T22:36:45Z"
+      },
+      {
+        "conclusion": "success",
         "created_at": "2026-10-11T22:24:53Z",
         "event": "push",
         "id": 38180325395,
         "name": "Registrar estadisticas GitHub",
         "run_attempt": 1,
         "run_started_at": "2026-10-11T22:24:53Z",
-        "status": "in_progress",
-        "updated_at": "2026-10-11T22:24:56Z"
+        "status": "completed",
+        "updated_at": "2026-10-11T22:25:17Z"
       },
       {
         "conclusion": "success",
@@ -3683,6 +3525,6 @@
       }
     ],
     "status": "ok",
-    "total_runs": 12
+    "total_runs": 13
   }
 }
