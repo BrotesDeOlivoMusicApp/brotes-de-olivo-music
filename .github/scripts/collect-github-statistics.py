@@ -91,8 +91,17 @@ def select_releases():
     result = pages("releases", "/releases")
     releases = []
     for release in result["items"]:
+        tag = str(release.get("tag_name") or "")
+        # Android se distribuye en Google Play, no en GitHub.
+        # Excluir la Release COMPLETA: APK/AAB, mapeos, JSON y pruebas.
+        if tag.lower().startswith("android-"):
+            continue
         assets = []
         for a in release.get("assets", []):
+            name = str(a.get("name") or "")
+            # Cobertura adicional para APK/AAB fuera de tags android-*.
+            if name.lower().endswith((".apk", ".aab")):
+                continue
             assets.append({
                 "id": a.get("id"), "name": a.get("name"),
                 "size_bytes": a.get("size"), "downloads_total": a.get("download_count"),
@@ -104,7 +113,12 @@ def select_releases():
             "published_at": release.get("published_at"), "assets": assets,
         })
     return {"status": result["status"], "items": releases,
-            "asset_count": sum(len(r["assets"]) for r in releases)}
+            "asset_count": sum(len(r["assets"]) for r in releases),
+            "excluded": {
+                "release_tag_prefixes": ["android-"],
+                "asset_extensions": [".apk", ".aab"],
+                "reason": "Android distribution statistics belong to Google Play Console"
+            }}
 
 
 def select_actions():
