@@ -1,0 +1,32 @@
+name: Retry Android candidate APK upload (0.0.69)
+on:
+  push:
+    paths:
+      - '.github/workflows/retry-android-candidate-069.yml'
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Retrieve verified APK from completed Android build
+        env:
+          ARCHIVE_URL: "https://sdmntprdenmarkeast.oaiusercontent.com/files/00000000-632c-8210-bab0-8971613d0679/raw?se=2026-10-11T18%3A57%3A42Z&sp=r&sv=2026-02-06&sr=b&scid=1f2f4023-10f0-5fa8-971d-28425cb23114&skoid=a4604a88-85e4-4562-b6ab-a5622268de80&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-11T18%3A21%3A33Z&ske=2026-10-12T18%3A21%3A33Z&sks=b&skv=2026-02-06&sig=KXS5wOEg%2BWWG1lrI7YiYoSThfsKKz67s1GsdhVvruQo%3D"
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 "$ARCHIVE_URL" -o /tmp/brotes-candidate.zip
+          mkdir -p candidate
+          unzip -q /tmp/brotes-candidate.zip -d candidate
+          echo "9b876ad3c42bd7fb6589c55713e5f5dd51b4690ef5ab06444de1d127cc5fbec1  candidate/BrotesDeOlivo-Android-v0.0.69.apk" | sha256sum --check -
+          test -s candidate/BrotesDeOlivo-Android-v0.0.69.json
+      - name: Upload exact APK to existing candidate Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release view android-candidate --repo BrotesDeOlivoMusicApp/brotes-de-olivo-music
+          gh release upload android-candidate candidate/BrotesDeOlivo-Android-v0.0.69.apk candidate/BrotesDeOlivo-Android-v0.0.69.json --repo BrotesDeOlivoMusicApp/brotes-de-olivo-music --clobber
+          gh release view android-candidate --repo BrotesDeOlivoMusicApp/brotes-de-olivo-music --json assets --jq '.assets[].name' | grep -Fx BrotesDeOlivo-Android-v0.0.69.apk
