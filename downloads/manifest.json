@@ -1,23 +1,23 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-10-11T22:41:41.448Z",
-  "platforms": {
-    "windows": {
-      "label": "Windows",
-      "available": true,
-      "version": "0.1.112",
-      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup-v0.1.112.exe",
-      "file": "BrotesDeOlivo-Setup-v0.1.112.exe",
-      "sha256": "3f0216499f29aa097cc2e4980e79d165c94b997e17ccffb8f418643e24319e83"
-    },
-    "macos": {
-      "label": "Windows en Mac",
-      "available": true,
-      "version": null,
-      "distribution": "instructions",
-      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/Manual_instalacion_Brotes_en_Mac_VMware.docx",
-      "file": "Manual_instalacion_Brotes_en_Mac_VMware.docx",
-      "sha256": "1a32312fdfd09838d73a36c9c5b9f5b950d7a8f44ad47abf3e048006fa10f2aa"
-    }
-  }
+    "schema_version":  1,
+    "updated_at":  "2026-10-12T00:16:00.1275282Z",
+    "platforms":  {
+                      "windows":  {
+                                      "label":  "Windows",
+                                      "available":  true,
+                                      "version":  "0.1.113",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup-v0.1.113.exe",
+                                      "file":  "BrotesDeOlivo-Setup-v0.1.113.exe",
+                                      "sha256":  "35299eaf007a4212da26ef27fa148e41d6349eaca052dcc54b7c33d78e762b89"
+                                  },
+                      "macos":  {
+                                    "label":  "Windows en Mac",
+                                    "available":  true,
+                                    "version":  null,
+                                    "distribution":  "instructions",
+                                    "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/macos-public/Manual_instalacion_Brotes_en_Mac_VMware.docx",
+                                    "file":  "Manual_instalacion_Brotes_en_Mac_VMware.docx",
+                                    "sha256":  "1a32312fdfd09838d73a36c9c5b9f5b950d7a8f44ad47abf3e048006fa10f2aa"
+                                }
+                  }
 }
