@@ -1,14 +1,14 @@
 {
     "schema_version":  1,
-    "updated_at":  "2026-10-14T20:00:28.0194050Z",
+    "updated_at":  "2026-10-14T21:46:51.7013124Z",
     "platforms":  {
                       "windows":  {
                                       "label":  "Windows",
                                       "available":  true,
-                                      "version":  "0.1.123",
-                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup-v0.1.123.exe",
-                                      "file":  "BrotesDeOlivo-Setup-v0.1.123.exe",
-                                      "sha256":  "f9bd3bc309ad1bd60af6e59aca632e4b45c5d10a9047437f31c73dddc5c07cbe"
+                                      "version":  "0.1.124",
+                                      "url":  "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/windows-public/BrotesDeOlivo-Setup-v0.1.124.exe",
+                                      "file":  "BrotesDeOlivo-Setup-v0.1.124.exe",
+                                      "sha256":  "df58567ba56e364d6f054d15caee0ffa8d85b84bc6a6efe0e11bf925cc969a12"
                                   },
                       "macos":  {
                                     "label":  "Windows en Mac",
