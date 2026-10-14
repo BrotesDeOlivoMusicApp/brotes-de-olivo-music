@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "fecha_actualizacion": "2026-09-29T15:43:00Z",
+  "version": 3,
+  "fecha_actualizacion": "2026-10-14T22:16:01Z",
   "canciones": [
     {
       "id": "C0361",
@@ -9982,6 +9982,510 @@
           "anio": 1989,
           "numero_disco": 1,
           "numero_pista": 17
+        }
+      ]
+    },
+    {
+      "id": "C0417",
+      "titulo": "Al levantarme",
+      "archivo": "1-Al-levantarme.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/1-Al-levantarme.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 1,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/1-Al-levantarme.mp3",
+      "duracion_segundos": 95,
+      "tamano_bytes": 3833872,
+      "sha256": "816deaddbd6bdeac7478e761802c84617d3990a11a25869fdc28ef9df415dd63",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 1
+        }
+      ]
+    },
+    {
+      "id": "C0418",
+      "titulo": "Caín",
+      "archivo": "2-Cain.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/2-Cain.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 2,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/2-Cain.mp3",
+      "duracion_segundos": 104,
+      "tamano_bytes": 4165864,
+      "sha256": "57ed640a4b1867394ce6bdd0cc1f18f840a0541c65d2c06fc3ffdda2774e1231",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 2
+        }
+      ]
+    },
+    {
+      "id": "C0419",
+      "titulo": "Lot",
+      "archivo": "3-Lot.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/3-Lot.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 3,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/3-Lot.mp3",
+      "duracion_segundos": 136,
+      "tamano_bytes": 5452072,
+      "sha256": "e232ce7ed5c372aa5467ed0944aa68e70d6b4895df7ac5d0a8c0cc650148f1cd",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 3
+        }
+      ]
+    },
+    {
+      "id": "C0420",
+      "titulo": "Agar",
+      "archivo": "4-Agar.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/4-Agar.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 4,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/4-Agar.mp3",
+      "duracion_segundos": 93,
+      "tamano_bytes": 3728428,
+      "sha256": "c94d04561257fb78a0ec0ff7c673b4bd1fd7df3dfc03d97ff987688941f30afc",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 4
+        }
+      ]
+    },
+    {
+      "id": "C0421",
+      "titulo": "Jacob",
+      "archivo": "5-Jacob.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/5-Jacob.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 5,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/5-Jacob.mp3",
+      "duracion_segundos": 171,
+      "tamano_bytes": 6842680,
+      "sha256": "1be112a0235caef85637fd07f748d9237df29b586c79ba72dddcb8d2b60f1ef3",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 5
+        }
+      ]
+    },
+    {
+      "id": "C0422",
+      "titulo": "Rubén",
+      "archivo": "6-Ruben.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/6-Ruben.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 6,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/6-Ruben.mp3",
+      "duracion_segundos": 93,
+      "tamano_bytes": 3704416,
+      "sha256": "d9fd618d2339807cc59811f4c8bbb9dbb01353ed734821579c1b3925aa6f4700",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 6
+        }
+      ]
+    },
+    {
+      "id": "C0423",
+      "titulo": "Bella flor",
+      "archivo": "7-Bella-flor.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/7-Bella-flor.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 7,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/7-Bella-flor.mp3",
+      "duracion_segundos": 107,
+      "tamano_bytes": 4296364,
+      "sha256": "1396e8cedea7f413d63c4b0ba447af1d4a6219b941eb68b3cc559de656d1b065",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 7
+        }
+      ]
+    },
+    {
+      "id": "C0424",
+      "titulo": "Ruth",
+      "archivo": "8-Ruth.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/8-Ruth.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 8,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/8-Ruth.mp3",
+      "duracion_segundos": 153,
+      "tamano_bytes": 6120232,
+      "sha256": "e69ecf522411f0ee5242682a040a35b35406c4e65a96b67ae2cc3a9ddcc9d25b",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 8
+        }
+      ]
+    },
+    {
+      "id": "C0425",
+      "titulo": "Te alabamos",
+      "archivo": "9-Te-alabamos.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/9-Te-alabamos.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 9,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/9-Te-alabamos.mp3",
+      "duracion_segundos": 109,
+      "tamano_bytes": 4372576,
+      "sha256": "ffed804843f13e581af025e4e5c684e4fd57d8fadc4b9c7e51069f60b24184d0",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 9
+        }
+      ]
+    },
+    {
+      "id": "C0426",
+      "titulo": "Qué feliz serás",
+      "archivo": "10-Que-feliz-seras.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/10-Que-feliz-seras.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 10,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/10-Que-feliz-seras.mp3",
+      "duracion_segundos": 121,
+      "tamano_bytes": 4859080,
+      "sha256": "c67b8e872d03aeefa898600f5a021f6db9ecc983be20c43d023e2353fecc229d",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 10
+        }
+      ]
+    },
+    {
+      "id": "C0427",
+      "titulo": "Carmelo",
+      "archivo": "11-Carmelo.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/11-Carmelo.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 11,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/11-Carmelo.mp3",
+      "duracion_segundos": 143,
+      "tamano_bytes": 5738128,
+      "sha256": "820264947a832a4fc448b32472c4823e711269d994697d3b45779bbd87e23ca3",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 11
+        }
+      ]
+    },
+    {
+      "id": "C0428",
+      "titulo": "La tempestad",
+      "archivo": "12-La-tempestad.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/12-La-tempestad.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 12,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/12-La-tempestad.mp3",
+      "duracion_segundos": 156,
+      "tamano_bytes": 6249688,
+      "sha256": "fc81ea7d87f7c6b47d76385d7e28489095a350a8fa896e2e9e2d2df347bfbefd",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 12
+        }
+      ]
+    },
+    {
+      "id": "C0429",
+      "titulo": "De uno a diez",
+      "archivo": "13-De-uno-a-diez.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/13-De-uno-a-diez.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 13,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/13-De-uno-a-diez.mp3",
+      "duracion_segundos": 91,
+      "tamano_bytes": 3636556,
+      "sha256": "53c9159105ca91a6534aaad605d5e99267a3d8a425759177fbd05e68273ecfa5",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 13
+        }
+      ]
+    },
+    {
+      "id": "C0430",
+      "titulo": "El buen pastor",
+      "archivo": "14-El-buen-pastor.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/14-El-buen-pastor.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 14,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/14-El-buen-pastor.mp3",
+      "duracion_segundos": 132,
+      "tamano_bytes": 5294428,
+      "sha256": "e9dced0a447d6dd9f216c214920a870d82f994676e9b5fa8ca630493f0a31222",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 14
+        }
+      ]
+    },
+    {
+      "id": "C0431",
+      "titulo": "Cuatro amigos",
+      "archivo": "15-Cuatro-amigos.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/15-Cuatro-amigos.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 15,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/15-Cuatro-amigos.mp3",
+      "duracion_segundos": 130,
+      "tamano_bytes": 5206732,
+      "sha256": "4715a54896e1ad137094de847f86b3bcab28cf6c4f33a5952cfc99aa63b73b26",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 15
+        }
+      ]
+    },
+    {
+      "id": "C0432",
+      "titulo": "Jesús resucitó",
+      "archivo": "16-Jesus-resucito.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/16-Jesus-resucito.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 16,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/16-Jesus-resucito.mp3",
+      "duracion_segundos": 112,
+      "tamano_bytes": 4461316,
+      "sha256": "d24183b7bf0958437767fd2f09e29c055a7c10026d33f9df9af13b1c9c5ad27b",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 16
+        }
+      ]
+    },
+    {
+      "id": "C0433",
+      "titulo": "Tomás",
+      "archivo": "17-Tomas.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/17-Tomas.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 17,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/17-Tomas.mp3",
+      "duracion_segundos": 127,
+      "tamano_bytes": 5089804,
+      "sha256": "49ddf7c52d59eee11df4f75efeb8b9d78a9790b00c5b4cf6cdaab7ef91452570",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 17
+        }
+      ]
+    },
+    {
+      "id": "C0434",
+      "titulo": "Él se fue",
+      "archivo": "18-El-se-fue.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/18-El-se-fue.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 18,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/18-El-se-fue.mp3",
+      "duracion_segundos": 169,
+      "tamano_bytes": 6769600,
+      "sha256": "fa00f08c14c8e73ebac5074f14c8fcaddfdd9b897de3851069f7e65812b946ba",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 18
+        }
+      ]
+    },
+    {
+      "id": "C0435",
+      "titulo": "Tabita",
+      "archivo": "19-Tabita.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/19-Tabita.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 19,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/19-Tabita.mp3",
+      "duracion_segundos": 166,
+      "tamano_bytes": 6653716,
+      "sha256": "4e45427b3e1c137692ca9323f61ba6bcccb554056652b2cf28cb986cf912d759",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 19
+        }
+      ]
+    },
+    {
+      "id": "C0436",
+      "titulo": "Nu, nu, nu",
+      "archivo": "20-Nu-nu-nu.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/20-Nu-nu-nu.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 20,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/20-Nu-nu-nu.mp3",
+      "duracion_segundos": 102,
+      "tamano_bytes": 4094872,
+      "sha256": "6ca51c637856dfe73925c231092b0194e35fe96c51b117202b9051ef968938b0",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 20
+        }
+      ]
+    },
+    {
+      "id": "C0437",
+      "titulo": "Él viene",
+      "archivo": "21-El-viene.mp3",
+      "url": "https://github.com/BrotesDeOlivoMusicApp/brotes-de-olivo-music/releases/download/discografia-v1/21-El-viene.mp3",
+      "tipo": "audio/mpeg",
+      "version": 1,
+      "disco": "LA BIBLIA EN CANCIONES 2",
+      "anio": 1986,
+      "numero_pista": 21,
+      "url_origen": "https://brotesdeolivo.es/wp-content/uploads/2026/10/21-El-viene.mp3",
+      "duracion_segundos": 98,
+      "tamano_bytes": 3932008,
+      "sha256": "b994531444717d35857c4324da138cb1d86f0ac0e56b0aab4f754afb1a773640",
+      "apariciones": [
+        {
+          "disco_id": "D035",
+          "disco": "LA BIBLIA EN CANCIONES 2",
+          "anio": 1986,
+          "numero_disco": 1,
+          "numero_pista": 21
         }
       ]
     }
