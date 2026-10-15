@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.10.14.1",
+  "dataVersion": "2026.10.15.1",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "9642c5ecf011ff6c9f4710fdbd9fcc18caa438b86cd53e768e2b17f7b67c9a20",
-  "date": "2026-10-14",
-  "notes": "Catálogo central único"
+  "sha256": "9830a23086e52350c42f3913b426b20448712bf182b4013c077b4dd06290fe0b",
+  "date": "2026-10-15",
+  "notes": "Letras de La Biblia en canciones 2; eliminado D033 y normalizado el orden cronológico"
 }
