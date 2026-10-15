@@ -1,10 +1,10 @@
 {
-  "dataVersion": "2026.10.15.1",
+  "dataVersion": "2026.10.15.4",
   "schemaVersion": 11,
   "minAppVersion": "0.1.45",
   "minAndroidAppVersion": "0.0.12",
   "file": "brotes_publica.sqlite",
-  "sha256": "9830a23086e52350c42f3913b426b20448712bf182b4013c077b4dd06290fe0b",
+  "sha256": "ecbb52acda2cbeb58b7d7632b0a340edbf50f2ee7351b4f33de04619e06c20ee",
   "date": "2026-10-15",
-  "notes": "Letras de La Biblia en canciones 2; eliminado D033 y normalizado el orden cronológico"
+  "notes": "Acordes añadidos a las 21 canciones de La Biblia en canciones 2"
 }
