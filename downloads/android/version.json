@@ -1,6 +1,0 @@
-{
-  "platform": "android",
-  "available": false,
-  "distribution": "google_play",
-  "note": "Distribucion Android exclusivamente mediante Google Play. No se publican APK ni AAB en GitHub."
-}
