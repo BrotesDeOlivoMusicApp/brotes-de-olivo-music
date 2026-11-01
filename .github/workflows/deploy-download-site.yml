@@ -1,11 +1,10 @@
-name: Publish download site
+name: Publish privacy policy only
 
 on:
   push:
     branches: [main]
     paths:
       - "website/**"
-      - "downloads/manifest.json"
       - ".github/workflows/deploy-download-site.yml"
   workflow_dispatch:
 
@@ -25,15 +24,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Prepare self-contained site
+      - name: Build privacy-only site
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p site/downloads
-          cp -R website/. site/
-          cp downloads/manifest.json site/downloads/manifest.json
+          test -s website/politica-privacidad.html
+          mkdir -p site
+          cp website/politica-privacidad.html site/politica-privacidad.html
+          touch site/.nojekyll
 
       - uses: actions/configure-pages@v5
         with:
