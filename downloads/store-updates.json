@@ -1,0 +1,16 @@
+{
+  "formatVersion": 1,
+  "entries": [
+    {
+      "platform": "windows",
+      "channel": "production",
+      "version": "0.1.184.0",
+      "versionCode": null,
+      "available": true,
+      "publishedAt": "2026-11-01T13:22:47.3930789+00:00",
+      "notes": {
+        "es": "Est\u00E1 disponible una nueva versi\u00F3n de BROTES DE OLIVO MUSIC para Windows.\r\n\r\nEsta actualizaci\u00F3n incorpora mejoras de funcionamiento y estabilidad, as\u00ED como ajustes en la interfaz y en la informaci\u00F3n de la aplicaci\u00F3n.\r\n\r\nPuedes descargar e instalar la actualizaci\u00F3n directamente desde la aplicaci\u00F3n, sin necesidad de abrir manualmente Microsoft Store."
+      }
+    }
+  ]
+}
