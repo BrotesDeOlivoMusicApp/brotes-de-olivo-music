@@ -1,0 +1,36 @@
+name: Retire obsolete public Windows installers (one-time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/retirar-instaladores-publicos.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  retire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete only backed-up Windows installer assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo="${GITHUB_REPOSITORY}"
+          tag="windows-public"
+          if ! gh release view "$tag" --repo "$repo" >/dev/null 2>&1; then
+            echo "No obsolete Windows release remains."
+            exit 0
+          fi
+          assets="$(gh api "repos/$repo/releases/tags/$tag" --jq '.assets[] | select(.name | test("^BrotesDeOlivo-Setup-v[0-9.]+[.]exe$")) | .id')"
+          for asset_id in $assets; do
+            gh api --method DELETE "repos/$repo/releases/assets/$asset_id"
+          done
+          remaining="$(gh api "repos/$repo/releases/tags/$tag" --jq '.assets | length')"
+          if [ "$remaining" = "0" ]; then
+            gh release delete "$tag" --repo "$repo" --yes --cleanup-tag
+          fi
