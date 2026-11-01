@@ -1,18 +1,21 @@
-# Brotes de Olivo Music — distribución pública
+# BROTES DE OLIVO MUSIC — Recursos publicos esenciales
 
-Este repositorio conserva la web pública y los metadatos de distribución de Brotes de Olivo Music. Los instaladores de Windows se publican en Releases. El catálogo musical y los archivos de audio ya no se distribuyen desde este repositorio.
+**La antigua web de descarga de aplicaciones ha sido retirada (01/11/2026).**
 
-El desarrollo, las herramientas internas y el acceso administrativo se mantienen en repositorios privados. Este repositorio no contiene credenciales administrativas.
+Las aplicaciones se distribuyen por sus tiendas oficiales:
+- Windows: Microsoft Store.
+- Android: Google Play.
 
-Las obras y grabaciones pertenecen a sus respectivos titulares. Su descarga no concede una licencia de reutilización.
+Este repositorio permanece publico exclusivamente para recursos que deban ser
+accesibles sin autenticacion, como la politica de privacidad y, cuando se
+configuren, los avisos de versiones disponibles en las tiendas.
 
-## Distribución Android
+- Politica de privacidad ES/EN:
+  https://brotesdeolivomusicapp.github.io/brotes-de-olivo-music/politica-privacidad.html
+- No se publica aqui ningun nuevo instalador Windows EXE, APK ni AAB.
+- Los instaladores locales y MSIX de pruebas se conservan en el ordenador
+  de desarrollo o en artefactos privados temporales.
+- El codigo fuente y las credenciales permanecen en repositorios privados.
 
-Android se distribuye exclusivamente mediante **Google Play** (actualmente
-pruebas cerradas). Esta web no ofrece enlaces para descargar APK ni AAB; el
-manifiesto público no anuncia Android como descarga directa.
-
-Las APK de prueba y las AAB destinadas a Play Console se generan como artefactos
-temporales en el repositorio de desarrollo **privado**. Las Releases históricas
-de Android de este repositorio se retiraron el 30/10/2026 y ya no son un canal
-de descarga.
+Los enlaces historicos de audio, si existieran, no forman parte del
+canal de instalacion ni deben confundirse con una descarga de la app.
